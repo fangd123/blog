@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SVM - Understanding the math : the optimal hyperplane - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SVM - Understanding the math : the optimal hyperplane" />
+<meta property="og:description" content="这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/" />
+<meta property="article:published_time" content="2016-03-08T16:46:00+08:00" />
+<meta property="article:modified_time" content="2016-03-08T16:46:00+08:00" />
+<meta itemprop="name" content="SVM - Understanding the math : the optimal hyperplane">
+<meta itemprop="description" content="这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计">
+<meta itemprop="datePublished" content="2016-03-08T16:46:00&#43;08:00" />
+<meta itemprop="dateModified" content="2016-03-08T16:46:00&#43;08:00" />
+<meta itemprop="wordCount" content="2241">
+
+
+
+<meta itemprop="keywords" content="svm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SVM - Understanding the math : the optimal hyperplane"/>
+<meta name="twitter:description" content="这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SVM - Understanding the math : the optimal hyperplane</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-08 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 2241 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这是整个系列的第三部分。
+在你阅读这篇文章前，你也许想看看前边的文章：</p>
+<p><strong>SVM - 理解背后的数学原理</strong></p>
+<p>第一部分：支持向量机的目标是什么？
+第二部分：如何计算间隔？
+第三部分：如何找到最优超平面？</p>
+<p>#这篇文章讲述内容</p>
+<p>本文的重点是告诉你选择最优超平面的理由。</p>
+<p>下面是我们将了解的内容摘要：</p>
+<ul>
+<li>如何寻找超平面</li>
+<li>我们如何计算两个超平面之间的距离</li>
+<li>什么时候SVM最优化问题</li>
+</ul>
+<p>#如何寻找最优超平面</p>
+<p>在第二部分的结尾，我们计算了点 $A$ 到超平面的距离$|p|$。然后我们计算了间隔为 $2|p|$。</p>
+<p>然而，即使这个超平面很好的分隔了数据，但是它并不是最优超平面。
+<img src="http://i1.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/04/1-svm-hyperplane1.png" alt="Figure 1: The margin we calculated in Part 2 is shown as M1">
+<em>图 1：我们在第二部分计算的间隔 M1</em></p>
+<p>正如我们在第一部分了解到的，最优超平面是最大化训练数据间隔的超平面。</p>
+<p>在图1中，我们能够看到在两条蓝线之间的间隔 $M_1$，它并不是完美分隔数据的最大的间隔。最大的间隔是下图2间隔 $M_2$。</p>
+<p><img src="http://i0.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/04/2-svm-hyperplane1.png" alt="Figure 2: The optimal hyperplane is slightly on the left of the one we used in Part 2.">
+<em>图 2：最优超平面是在第二部分中提到的稍微靠左的那条线</em></p>
+<p>你能够看到图2的最优超平面，它在我们开始的超平面稍微左边的位置，我该如何找到它？我仅仅画条 $M_2$ 的中线。</p>
+<p>现在你应该能够感觉到超平面和间隔的紧密联系了，你的感觉是对的！</p>
+<p>如果我有一个超平面我能够计算它的间隔（到一些数据点的距离）。如果我有一个间隔限制在两个超平面之间（图2中深蓝色的线），我就能找到间隔正中间的超平面。</p>
+<p><strong>寻找最大的间隔，等同于寻找最优超平面</strong></p>
+<p>#我们如何寻找最大的间隔？</p>
+<p>相当简单：</p>
+<ul>
+<li>你有一个数据集</li>
+<li>选择两个超平面将数据分隔开来，没有数据点在超平面之间</li>
+<li>最大化它们的距离（间隔）</li>
+</ul>
+<p>两个超平面之间所夹的区域就可能是最大间隔。</p>
+<p>如果它是这么简单为什么大家学习SVM都这么痛苦？
+因为简化SVM是需要很好地理解抽象概念和数学术语的能力。</p>
+<p>所以我们将会一步一步来掌握这种方法：</p>
+<p>##第1步：你有一个数据集 $D$ 并且你想将它分类</p>
+<p>大部分情况下你的数据将会组成 $n$ 维向量 $\mathbf{x}_i$</p>
+<p>每一个 $\mathbf{x}_i$ 将会和一个值 $y_i$ 联系起来，表示这个元素属于这个类别（+1）或者不属于（-1）</p>
+<p>注意 $y_i$ 仅仅只有两个可能的值-1或者+1。</p>
+<p>然后，大多数情况下，例如当你分类文本的时候，你的向量 $\mathbf{x}_i$ 将会有非常多的维度，如果它有 $p$ 个维度，我们就说 $\mathbf{x}_i$ 是一个 $p$ 维向量。</p>
+<p>因此你的数据集 $D$ 是 $n$ 个元素对 $(\mathbf{x}_i, y_i)$ 组成的集合。</p>
+<p>在集合论中，对于初始数据集更加正式的定义是：</p>
+<p>$$ D = {(\mathbf{x}_i,y_i) | \mathbf{x}_i }$$</p>
+<p>##第2步：你需要选择两个超平面，并且它们之间没有数据点</p>
+<p>如果你有笔和纸的话，寻找分隔数据的超平面比较容易。但是对于一些 $n$ 维数据来说，因为你不能把它画出来，所以就变得困难了。</p>
+<p>然而，即使你的数据是二维的，你也不一定能够找到分隔超平面！</p>
+<p><em>你仅仅能够在数据是线性可分的情况下找到分隔超平面</em></p>
+<p><img src="http://i2.wp.com/www.svm-tutorial.com/wp-content/uploads/2014/07/linearlyVsNLinearly.png" alt="Figure 3: Data on the left can be separated by an hyperplane, while data on the right can&rsquo;t">
+<em>图 3：左边的数据能够被分隔超平面分开，而右边的不行</em></p>
+<p>假设我们的数据集 $D$ 是线性可分的。我们现在想找两个超平面，并且它们之间没有数据点，但是我们没有办法把他们表示出来。</p>
+<p>那我们如何才能知道这些超平面呢？</p>
+<p><strong>换一个角度来看超平面方程</strong></p>
+<p>我们之前已经知道，超平面方程可以这样写：</p>
+<p>$$\mathbf{w}_T\mathbf{x} = 0$$</p>
+<p>然而，在维基百科中关于支持向量机是这样描述的：</p>
+<blockquote>
+<p>任何超平面都能够被写成满足方程 $\mathbf{w}\cdot\mathbf{x} - b = 0$ 的点 $\mathbf{x}$ 的集合</p>
+</blockquote>
+<p>首先，我们找到了点乘的另外一个表示方法，这篇文章用 $\mathbf{w}_T\mathbf{x} = 0$ 代替 $\mathbf{w}\cdot\mathbf{x}$。</p>
+<p>你也许想知道&hellip;$-b$ 是从哪里来的？是我们之前的定义不正确么？</p>
+<p>不是这样的。这又是一个关于定义的问题。在我们的定义中向量 $\mathbf{w}$ 和 $\mathbf{x}$ 有三个维度，而维基百科的定义中它们只有两个维度：</p>
+<p>给定两个三维向量 $\mathbf{w}(-b,-a,1)$ 和 $\mathbf{x}(1,x,y)$</p>
+<p>$$\mathbf{w}\cdot\mathbf{x} = -b \times (1) + (-a) \times x + 1 \times y$$
+$$\mathbf{w}\cdot\mathbf{x} = y - ax -b$$</p>
+<p>给定两个二维向量 $\mathbf{w}^{'}(-a,1)$ 和 $\mathbf{x}^{'}(x,y)$</p>
+<p>$$\mathbf{w}^{'}\cdot\mathbf{x}^{'} =  (-a) \times x + 1 \times y$$
+$$\mathbf{w}^{'}\cdot\mathbf{x}^{'} = y - ax$$</p>
+<p>现在如果我们等式两边同时减去 $b$，我们得到：</p>
+<p>$$\mathbf{w}^{'}\cdot\mathbf{x}^{'} - b= y - ax - b$$
+$$\mathbf{w}^{'}\cdot\mathbf{x}^{'} - b= \mathbf{w}\cdot\mathbf{x}$$</p>
+<p>这篇文章的剩余部分我们将使用二维向量。</p>
+<p>给定一个超平面 $H_0$ 分隔数据集并且满足：</p>
+<p>$$\mathbf{w}\cdot\mathbf{x} - b = 0$$</p>
+<p>我们能够找到另外的两个超平面 $H_1$ 和 $H_2$ 也能够分隔数据并且满足如下等式：
+$$\mathbf{w}\cdot\mathbf{x} - b = \dfd$$
+和
+$$\mathbf{w}\cdot\mathbf{x} - b = -\dfd$$</p>
+<p>因此 $H_0$ 到 $H_1$ 和 $H_2$ 是等距的。</p>
+<p>然而，变量x并不是必须的。因此我们能够设x=1 来简化这个问题。</p>
+<p>$$\mathbf{w}\cdot\mathbf{x} - b = 1$$
+和
+$$\mathbf{w}\cdot\mathbf{x} - b = -1$$</p>
+<p>现在我们想确定在两条超平面之间没有数据点。
+我们并不是选择任意的超平面，而是仅仅选择满足以下约束的：</p>
+<p>对于每个向量 $\mathbf{x_i}$  满足：
+$$\mathbf{w}\cdot\mathbf{x_i} - b &gt;= 1 对于 \mathbf{x_i} 属于分类1 $$
+或者
+$$\mathbf{w}\cdot\mathbf{x_i} - b &lt;= -1 对于 \mathbf{x_i} 属于分类-1 $$</p>
+<p>####理解这条约束</p>
+<p>在接下来的图表中，所有的红色点属于<strong>类别1</strong>而所有的蓝色点属于<strong>类别-1</strong>。</p>
+<p>所有让我们看看<em>图 4</em> 中的点 $A$。它是红色的因此属于类别1，我们需要确认它没有违反约束条件 $\mathbf{w}\cdot\mathbf{x_i} - b &gt;= 1$</p>
+<p>当 $\mathbf{x_i} = A$ 时，我们看到该点在超平面上，因此 $\mathbf{w}\cdot\mathbf{x_i} - b =1$ 约束条例满足。点 $B$ 同理。</p>
+<p>当 $\mathbf{x_i} = C$ 时，我们看到该点在超平面上方，因此 $\mathbf{w}\cdot\mathbf{x_i} - b &gt; 1$ 约束条例满足。点 $D, E, F 和 G$ 同理。</p>
+<p>同理可以得到对于属于类别-1的点，约束条件也是满足的。</p>
+<p><img src="http://i0.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/05/3-svm-hyperplane-constraints.png" alt="Figure 4: Two hyperplanes satisfying the constraints">
+<em>图 4：两个超平面满足约束条件</em></p>
+<p>在<em>图 5</em>，我们看到另外一对超平面也满足约束条件：
+<img src="http://i1.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/05/3-svm-hyperplane-constraints-1.png" alt="Figure 5: Two hyperplanes also satisfying the constraints">
+<em>图 5：两个超平面也满足约束条件</em></p>
+<p>现在我们将会检查约束条件不被满足的情况：</p>
+<p><img src="http://i0.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/05/3-svm-hyperplane-constraints-2.png" alt="Figure 6: The right hyperplane does not satisfy the first constraint">
+<em>图 6：右边的超平面没有满足第一条约束</em></p>
+<p><img src="http://i2.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/05/3-svm-hyperplane-constraints-3.png" alt="Figure 7: The left hyperplane does not satisfy the second constraint">
+<em>图 7：左边的超平面没有满足第二条约束</em>
+<img src="http://i0.wp.com/www.svm-tutorial.com/wp-content/uploads/2015/05/3-svm-hyperplane-constraints-4.png" alt="Figure 8: Both constraint are not satisfied">
+<em>图 8：两条约束都没有被满足</em></p>
+<p>约束条件没有被满足意味着什么？它意味着我们不能选择这两个超平面。你可以看到每次约束条件没有被满足（<em>图 5,7和8</em>），在两个超平面之间都会有数据点存在。</p>
+<p>通过定义这些约束条件，我们找到了选择<strong>没有数据点夹在中间</strong>的两个超平面的最原始的方法。并且这种方法不仅仅在我们的例子中有效，在 $p$ 维向量中也是有效的！</p>
+<p>###联合两条约束</p>
+<p>在数学中，人们喜欢精确地表达事物。
+两个约束方程可以联合到一个约束中：</p>
+<p>我们先从一个约束方程开始</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-03-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/svm/">svm</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="https://blog.fangd123.com/post/one-moment/">
+            <span class="next-text nav-default">一念</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2016-03-08 16:46:00 \x2b0800 CST',
+        title: 'SVM - Understanding the math : the optimal hyperplane',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

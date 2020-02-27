@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>hexo博客Mac平台安装 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="hexo博客Mac平台安装" />
+<meta property="og:description" content="缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/" />
+<meta property="article:published_time" content="2015-05-01T20:46:25-05:00" />
+<meta property="article:modified_time" content="2015-05-01T20:46:25-05:00" />
+<meta itemprop="name" content="hexo博客Mac平台安装">
+<meta itemprop="description" content="缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问">
+<meta itemprop="datePublished" content="2015-05-01T20:46:25-05:00" />
+<meta itemprop="dateModified" content="2015-05-01T20:46:25-05:00" />
+<meta itemprop="wordCount" content="1372">
+
+
+
+<meta itemprop="keywords" content="hexo,mac," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hexo博客Mac平台安装"/>
+<meta name="twitter:description" content="缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">hexo博客Mac平台安装</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-05-01 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 1372 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#缘起">缘起</a></li>
+        <li><a href="#安装nodejs">安装Node.js</a></li>
+        <li><a href="#安装homebrew">安装HomeBrew</a></li>
+        <li><a href="#安装hexo">安装hexo</a></li>
+        <li><a href="#加快npm响应速度">加快npm响应速度</a></li>
+        <li><a href="#用户权限设置">用户权限设置</a></li>
+        <li><a href="#寻找头文件">寻找头文件</a></li>
+        <li><a href="#小结">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#后记">后记</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h3 id="缘起">缘起</h3>
+<p>之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问题，不过最后总算配置成功了，遂撰此文记之。</p>
+<p>本文主要记录配置过程中所参考的文章以及遇到的问题和最后的解决方案，防止我以后遇到同样的情况不知所措。</p>
+<h3 id="安装nodejs">安装Node.js</h3>
+<p>按照往常的经验，我直接进入<a href="https://nodejs.org">官网</a>下载，选择对应版本后进行安装，这一步完成后运行Node一切正常</p>
+<h3 id="安装homebrew">安装HomeBrew</h3>
+<p>有些教程会说明首先安装这个，按照我以前的在Windows和CentOS上的经验，感觉官网的总要可靠一些（虽然后面在这个问题上吃了大亏），不过我还是进入其<a href="http://brew.sh/index_zh-cn.html">官网</a>，按照说明进行安装。</p>
+<p>###安装git</p>
+<p>git我是通过HomeBrew安装的，直接输入<code>sudo brew install git</code>剩下的程序自动完成。</p>
+<h3 id="安装hexo">安装hexo</h3>
+<p>同样，进入hexo官网，按照说明安装hexo，这个时候问题来了，有如下几个：</p>
+<ul>
+<li>npm响应速度太慢，等上好几分钟才响应，有时候甚至没有响应</li>
+<li>user &ldquo;root&rdquo; does not have permission</li>
+<li>&lsquo;uv.h&rsquo; file not found</li>
+</ul>
+<p>下面来逐一破解之。</p>
+<hr>
+<h3 id="加快npm响应速度">加快npm响应速度</h3>
+<p>使用淘宝npm镜像，参考这篇文章<a href="http://segmentfault.com/a/1190000000471219">http://segmentfault.com/a/1190000000471219</a>，问题解决。</p>
+<h3 id="用户权限设置">用户权限设置</h3>
+<p>根据错误提示，我发现应该是当前用户没有权限修改系统目录，因此只要使用<code>sudo npm install hexo -g</code>便可解决问题。</p>
+<h3 id="寻找头文件">寻找头文件</h3>
+<p>这个问题算是我遇到的最棘手的问题了，将相关的错误代码放到谷歌上搜索发现问题的原因有好多，没办法，我只有一一尝试之。</p>
+<ul>
+<li>
+<p>安装Command Line Tools</p>
+<ul>
+<li>有人说是因为没有安装CLT组件，所以我参照这篇<a href="http://blog.csdn.net/sqc3375177/article/details/23662755">教程</a>进行安装，后来发现从官网下载太慢了，正好在某个论坛上发现别人已经放在百度网盘上的安装文件，于是乎我便从百度网盘下载，链接<a href="http://pan.baidu.com/s/1hqmnoVy">http://pan.baidu.com/s/1hqmnoVy</a>，提取码：tyrl</li>
+<li>但是我安装完后错误依旧，问题并没有得到解决</li>
+</ul>
+</li>
+<li>
+<p>使用brew重新安装Node.js</p>
+<ul>
+<li>有人说需要把所有的东西重装一遍，于是乎我就决定使用brew把Node.js重装</li>
+<li>重装完成后，没有报错，问题得到解决</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="小结">小结</h3>
+<p>这次安装经历告诉我们，官网上的不一定是最好的，有时候第三方的安装包可能更好一些，就比如Mac OS上的HomeBrew，虽然我目前还没有能力找到为什么会这样，但是以后再遇到类似的问题时，改变思路，寻找一下第三方安装包重新安装</p>
+<h2 id="后记">后记</h2>
+<p>今天刚把最近整理的关于程序员发展的笔记整理一下，写了一篇小小的总结，发在我的博客上，然后就发现新配置的博客主题没有tags页面，起初我以为是在拷贝主题代码的时候没有拷贝完全，那个地方漏掉了，但是发现问题好像不在这儿，然后我就上网搜资料，这方面的资料真的很少很少，没办法，我又转个身了来进github的主题页面寻找线索。</p>
+<p>先是点击issues，发现不久前有人在上边提出了这个问题，我连忙在后边跟帖说明我遇到的情况，但是接着，我再次仔细阅读文档发现，文档中其实是有关于tags页面的创建的说明的，这个说明是在二级页面里边，需要点击相对饮的链接才可以进去，乖乖，好不容易搞定了。</p>
+<p>这个故事告诉我们，遇到问题，首先进官方查文档，一般的问题都能够在上边得到解决，毕竟东西是人家做的。在解决了这个问题之后，我还在issues下边把这个告诉了提出问题的那个朋友，第一次这样在github上发内容，心情还是有些小激动的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-05-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/hexo/">hexo</a>
+          <a href="https://blog.fangd123.com/tags/mac/">mac</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/the-way-toward-future/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">我的核心竞争力</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/%E5%86%B3%E5%AE%9A%E4%BA%86%E5%B0%B1%E4%B8%80%E7%9B%B4%E5%90%91%E5%89%8D%E8%BF%9B%E5%90%A7/">
+            <span class="next-text nav-default">决定了就一直向前进吧</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-05-01 20:46:25 -0500 -0500',
+        title: 'hexo博客Mac平台安装',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

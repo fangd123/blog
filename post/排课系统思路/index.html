@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>排课系统思路 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外&#43;7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="排课系统思路" />
+<meta property="og:description" content="###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外&#43;7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/" />
+<meta property="article:published_time" content="2015-10-16T10:24:00+08:00" />
+<meta property="article:modified_time" content="2015-10-16T10:24:00+08:00" />
+<meta itemprop="name" content="排课系统思路">
+<meta itemprop="description" content="###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外&#43;7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但">
+<meta itemprop="datePublished" content="2015-10-16T10:24:00&#43;08:00" />
+<meta itemprop="dateModified" content="2015-10-16T10:24:00&#43;08:00" />
+<meta itemprop="wordCount" content="13528">
+
+
+
+<meta itemprop="keywords" content="研究生涯,排课," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="排课系统思路"/>
+<meta name="twitter:description" content="###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外&#43;7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">排课系统思路</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-10-16 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 13528 字 </span>
+          <span class="more-meta"> 预计阅读 28 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>###原则</p>
+<ul>
+<li>从学生的角度出发，进行聚类</li>
+<li>从最简单的情况考虑起（语数外+7选3）</li>
+<li>抓主要，兼顾次要</li>
+</ul>
+<p>###约束条件</p>
+<p>#####主要</p>
+<ul>
+<li>语数外所有人都要学，但是分为A\B挡</li>
+<li>理化生政史地通技，7选3参加高考，剩下的4门仅参加会考（相当于这些课程同样分属A/B档）</li>
+</ul>
+<p>####次要</p>
+<ul>
+<li>音乐美术体育这三门课程分年级上</li>
+</ul>
+<p>####课程
+####教室
+####教师</p>
+<p>###思路</p>
+<ol>
+<li>对学生进行分类，筛选出选择了相同档次课程的学生</li>
+<li>使用遗传算法产生初始数据，然后对数据进行调整</li>
+</ol>
+<p>###具体规划</p>
+<p>1.了解C#</p>
+<hr>
+<p>###思路</p>
+<p>三个区块：</p>
+<ul>
+<li>初始分组数据区块（存放第一次分组的数据）</li>
+<li>缓存区块（存放每次分班之后剩下的分组）</li>
+<li>结果区块（存放已经分好班级的分组）</li>
+</ul>
+<p>###流程</p>
+<ol>
+<li>
+<p>对初始区块进行筛选，将符合分班要求的分组直接放入结果区块，剩下的放入缓存区块等待进一步处理</p>
+</li>
+<li>
+<p>按照尽可能减少班级和分班难度的原则，首先遍历去除某一门课，然后进行重新分组，观察是否有缓冲区的分组可以并入结果区并且依旧能够维持在一个班级的大小，如果可以的话，就将该缓冲区分组加入结果区对应分组，同时做好标记（这里主要通过分组ID区分），总之，尽可能塞到结果区块的分组中，剩下的依然放在缓存区块，注意count的变化</p>
+</li>
+</ol>
+<p>###技术实现方案</p>
+<p>目前主要有两种思路</p>
+<p>####通过数据库实现</p>
+<p><strong>但是我觉得如何记录每次的分组具体课程的问题，这个可不是数据库能够搞定的了！因此数据库只能作为辅助手段！</strong></p>
+<p>该方案主要是通过SQL语句实现上述流程，主要是通过左连接的方式，取出结果区的一行数据然后和缓冲区数据进行左连接，遍历去掉某一门课，查看是否能够左连接成功，如果能够成功就select出两边的ID和count是多少，将两边的count加起来是否符合要求，如果符合要求就可以认为他们是除去一门课的一组了</p>
+<p>需要注意的地方：</p>
+<ul>
+<li>这里我们需要在原始分组数据中新增一个外键，叫做结果区分组ID，然后再添加一个table，这个table的键和一般的分组键一样，但是存储的是该ID下的最大的选修集合（在第二轮分班完成之后再确定具体的插班课程）</li>
+</ul>
+<p>####通过C# LINQ 实现</p>
+<p>因为有许多非关系的数据需要进行存储，因此关系型数据库搞不定。</p>
+<p>构造一个分组对象，这个对象的属性有所有的在该分组下初始分组的信息，该初始分组的人数以及在该分组下的公共课</p>
+<p>基本组（Group）类</p>
+<ul>
+<li>人数</li>
+<li>具体选课信息</li>
+<li>公共课程</li>
+<li>插班课程</li>
+</ul>
+<p>GroupList类</p>
+<ul>
+<li>人数</li>
+<li>基本组</li>
+</ul>
+<p>伪代码</p>
+<ul>
+<li>建立基本组GroupList</li>
+<li>对GroupList进行筛选，分出BuffList和ResultList</li>
+<li>遍历比对bufferList中的分组和ResultList中的分组的差异，并且对于差异结果进行排序，从差异最小的分组开始合并</li>
+<li>建立List<!-- raw HTML omitted -->对象，用来存储最后的分班结果，大部分上相同的课程的分组将会被排在一个GroupList中，同时也会记录他们上的共同课程和插班课程</li>
+<li>合并之后我们需要对人数进行控制，尽可能让人数满足要求，</li>
+</ul>
+<p>####关于分组合并的优先级确定的方案</p>
+<p>#####原则</p>
+<ul>
+<li>尽可能寻找不同课程最少的分组合并</li>
+<li>尽可能在合并之后的人数在符合条件限制的人数范围内</li>
+</ul>
+<p>###接下来需要做的事情</p>
+<ul>
+<li>学习LINQ的相关知识</li>
+<li>将伪代码实现</li>
+</ul>
+<hr>
+<p>2015年6月10日</p>
+<p>###排课方案设计</p>
+<p>CourseTable类：相当于容器，用来存放所有的排课数据
+十门课的课时数据</p>
+<p>CourseCell类：存储单节课程数据
+课程名称
+上这门课的班级（班级对应的这门课的数据剔除，表示这门课已经排好了）</p>
+<hr>
+<p>2015年6月16日</p>
+<p>###排课方案设计</p>
+<p>在和张老师讨论之后，目前新的排课算法如下：</p>
+<ul>
+<li>和课时计算一样，在每个分组中首先存储一份通用的课程模板</li>
+<li>算法的任务就变成了如何调整每个分组中的课程表数据，让所有课程能够满足限定条件</li>
+</ul>
+<hr>
+<p>2015年6月18日</p>
+<p>#排课具体算法方案#</p>
+<p><strong>算法思想</strong>：使用基因的思想在每一个分组中“种下”一个课程表模板</p>
+<p><strong>算法步骤</strong>：</p>
+<ol>
+<li>将所有的分组按照课程表模板排布在课程表上，此时不对课程排布设置任何限定条件</li>
+<li>首先使用教师限定条件，对于超出教师需求的课程进行分班级的内部调整，</li>
+<li>同时也需要注意该<strong>分班</strong>的内部调整的课程应当是共同课程</li>
+<li>语数外主要和语数外调整，其他课程主要和其他课程进行调整，尽可能不把语数外和其他课程混调</li>
+<li>在语数外调整完成后，再对其他共同课程进行调整，调整思路参照语数外的调整课程</li>
+<li>特别课程的课程是不能够和其他任何课程进行互换的，只能和自己的特别课程互换</li>
+<li>由于课时数据在课表模板中已经考虑，因此不用担心课时和教室的问题</li>
+<li>另外剩下的全部插班的学生处理</li>
+<li>首先同一放在缓冲区域中</li>
+<li>对于语数外这三门课程首先进行调整</li>
+<li>首先找出插班的这三门课程共同的，合成一个班，把语数外调整首先完成</li>
+<li>然后再按照贪心算法，找出插班课程中相同课程最多的合成一个班，分别对这些相同课程进行插班处理</li>
+<li>剩下的课程就按照一门课程一门课程的插班</li>
+</ol>
+<p><em>注意的地方</em></p>
+<p>在每个分组的私有课程表中，需要添加一个监控变量，用来监控哪些课程是可以进行内部调整的，哪些课程不能够进行内部调整
+按照目前的思路，共有课程是可以内部调整的，私有课程也是可以进行内部调整的，但是共有课程不能够和私有课程之间调整</p>
+<p>####新的类的构造方案####</p>
+<ul>
+<li>将CourseTable类添加到Group类中</li>
+<li>CourseTable类中添加一个二维列表，每个列表变量类型为CourseCell</li>
+<li>CourseCell类添加一个bool变量，指明该课程为共有课程还是内部课程，在排课的时候根据该变量确定课程能否对调</li>
+</ul>
+<p>###其他的需要说明的地方###</p>
+<ul>
+<li>排课的时候依然是以班级而不是分组为单位排课，但是在需要对于该班级下所有分组的课表进行实时更新，保证数据最新</li>
+</ul>
+<p>###<strong>新的问题</strong>###</p>
+<ul>
+<li><input disabled="" type="checkbox">特别课程在确定之后是不能够进行变动的，但是特别课程内部是否可以互相调整</li>
+<li><input disabled="" type="checkbox">共有课程在这种情况下变成了该班级下所有分组的交集，那么如果出现了交集课程十分稀少的情况怎么办</li>
+<li><input disabled="" type="checkbox">老师能否再把排课的思路讲一遍，我需要重新理一遍思路</li>
+</ul>
+<hr>
+<p>2015年6月25日</p>
+<ul>
+<li>事实证明，初始分组拆分人数临界点为30，此时可以分出9个班，剩下46人，相关数据截图如下：</li>
+</ul>
+<p>经过昨天和老师的讨论，因为目前分班结果有很多都是三个组合并的结果，因此，第三个组的处理现在成了重要的问题。</p>
+<p>之前由于如果寻找三个组的交集，结果是三个组的交集其实是十分少的，因此后来采用了三个组两两的交集，选取交集结果最大的那个。但这样又会出现一个新的问题，第三个组和前边两个组都有不同的交集，那这个组又该如何计算？</p>
+<p>按照老师昨天的说法，分班之后每个班的课程都会有一个自己的唯一编号，格式按照<code>课程名称+班级下标+课程档次+是否为特有课程</code></p>
+<ul>
+<li>特有课程的全部按照要求进行编号，在后期排课的时候，我们可以把相同的课程名称的特有课程和别的班级的共同课程或者特有课程进行合并，也就是说在一个教室上两个班的特有课程（共同课程因为人数远远多于特有课程的人，因此不考虑一个教室上两个班的情况）</li>
+<li>还剩下46个人，10个分组，这10个分组我们可以考虑首先全部单独分班，然后将所有课程统一看做<code>特别课程</code>和其他班级的<code>特别课程</code>进行合并，然后在再统一进行分配</li>
+</ul>
+<p>###目前的做法</p>
+<ol>
+<li>在分班完成之后，将分班的所有课程相关数据全部提取出来，单独建立一个课程数据表进行处理</li>
+<li>每个分组一张默认排课表，在将其加入最后的分班的时候，自动对排课表的课程名称进行格式化，按照<strong>课程名称+班级编号+课程档次+是否为共同课程</strong>的格式</li>
+<li>当分组为三个的时候，<strong>第三个分组的common课程为和第一个和第二个分组的details课程的交集的并集</strong>，剩下的就是第三个分组和第一个和第二个分组都不同的课程了，同样，这些课程按照规定进行名称格式化。</li>
+</ol>
+<hr>
+<p>2015年6月26日</p>
+<p>###接下来需要处理的事情</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox">剩下的59人的处理
+按照之前的合并方法进行合并，但是这次合并是不限合并的组数，需要计算机遍历合并的成员数不同的情况下，最后合并的分班数量的质量最好的（质量最好主要考虑是相同的课程数，人数，还有分组数），争取再分出两个班出来，最后剩下的人就只能全部当成special课程进行处理了。</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">能量最小原理</p>
+</li>
+</ul>
+<ol>
+<li>寻找出周i第j节课的所有班级所上课程中能量值最大的课程的值（能量值的计算方法：$$该门课程重复数\div老师人数\times8$$将最大值就作为周i第j节课的能量值</li>
+<li>遍历并且求和第一步中的值，并且记录下来</li>
+<li>通过退火算法</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox">退火算法的具体实现方法</li>
+</ul>
+<p><strong>这里存在一个问题</strong>：退火算法本身就是通过计算温度函数来寻找出能量相对稳定的状态，它本身就可以作为一种排课的方法，如果要和能量最小原理结合起来使用的话，退火算法中的概率如何解决？退火算法不单单是一个产生随机数的算法，而是能够最后达到稳定状态的算法。</p>
+<ul>
+<li><input disabled="" type="checkbox">周末任务：学习这篇文章<a href="http://junzhang4008.blog.163.com/blog/static/22785788200762014027195">模拟退火算法 (自动排课系统算法应用)</a></li>
+</ul>
+<hr>
+<p>2015年6月24日</p>
+<p>###模拟退火算法的思路<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>核心思想：</p>
+<ol>
+<li>以班级为单位进行排班，可以尝试不同的排班先后顺序（这一点可以用并行编程实现），后边的班级的排班不能和前边的班级排班情况相冲突，如果不满足硬约束，则直接终止这种排班方式。</li>
+<li>如果遇到了冲突的情况，我们就需要进行该班级的内部课程调整（原则是公共课和公共课程调，特别课程和特别课程调），调整的时候使用退火算法，找出这种调整的最优方式，目标函数是软约束（课程分布、教师的平均上课强度）。</li>
+</ol>
+<p>具体实现思路：</p>
+<ol>
+<li>教室集合、教师集合、课程集合（当前班级的所有课程，包括公共课程和特别课程）</li>
+<li>第一个排班的班级所有数据保持不变，从第二个班级开始，根据课程模板的表格上的数据，随机调换其中两门课程的位置，然后看看是否能够成立，不行的话再随机，直到找到解为止。</li>
+<li>该解相当于这个班级的排课方法初始解，然后我们用模拟退火算法，然后再尝试一些不一定更好的解，寻找更加优化的解，更好的满足目标函数。</li>
+<li>在排班的时候，特别课程是允许和别的班级一起上的，也就是可以进行所谓的合班教学，但是合班的时候也需要注意只能和前边排好班的班级合班，并且合班的优先级是在排其他课程前边的，合班排好了之后是不能变动的，否则的话就不能够合班。</li>
+</ol>
+<hr>
+<p>2015年6月30日</p>
+<p>今天和老师讨论的结果：</p>
+<ul>
+<li>硬约束是所有的学生的有课上，软约束是所用的教师和教室尽可能少</li>
+<li>目标函数：(i为时段，j为该时段的课程名称)</li>
+<li>$$E_{ij}=W1\times重复数+W2\times重复数\div老师个数\times8$$</li>
+<li>$$E_{i} = Max(E_{ij})$$</li>
+<li>目标函数的迭代方法：按照班级顺序，每个班级调整相同类型的课程</li>
+<li>退火算法
+<ul>
+<li>领域解的生成：任意选取班级相同类型的n（这个作为参数可调整）个课程进行调整，作为新的初始解，计算E的值</li>
+<li>新的E的值具有一定的限定范围，防止能量过大收敛不回来</li>
+<li>同时n这个参数也用来控制领域解的</li>
+<li>温度下降的方法：</li>
+<li>迭代次数，拥有一个最大迭代次数U和接受次数指标R，达到其中的任一个就停止迭代</li>
+<li>算法边界：人为控制整个的大的迭代循环次数N，达到次数之后算法停止</li>
+</ul>
+</li>
+</ul>
+<p>###算法实现</p>
+<p>####实现前提</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">分班工作完成（最后59人先不考虑，最后统一进行插班处理）</li>
+<li><input checked="" disabled="" type="checkbox">拥有课表模板</li>
+</ul>
+<p>####具体步骤</p>
+<ol>
+<li>遍历分好的班级，调整同种类型课程的位置，计算E的值，记录下来</li>
+<li>记录每个时段的E的值，求和计算总的E的值，并且记录下来</li>
+<li>课程对调：当天当前班级相同类型的课程任选两门进行对调</li>
+<li>遍历每一天所有的对调情况，选取每一天E最小的值记录下来</li>
+<li>求和计算总的E的值，并且记录下来</li>
+<li>任意选择两门课程进行对调，只要能量值E在范围之内，表示接受这个结果</li>
+<li>重复1~6，n次，找出能量值最小的方法，将课程结果输出</li>
+</ol>
+<hr>
+<p>2015年7月2日
+###分班之后的课程编号方式</p>
+<ol>
+<li>按照班级次序对所有课程重新编号</li>
+<li>对于混合班的班级重新编号原则是能够合并成一个班的优先合并成一个班，然后在添加新的混合班</li>
+</ol>
+<p>非混合班不设定固定班级人数，直接按照之前分班结果的人数，而混合班的班级人数则设定一个参数，初步定参数为40~50人之间</p>
+<p>因为这种分班方式和之前的我的思路不一样，本着代码重用的原则，我之前的代码不做大幅度修改，而是添加新的数据结构用来存储新的分班课程。</p>
+<p>####我的方法</p>
+<ul>
+<li>单独创建一个变量用来存储该班级所有的课程（包括共同课程和特别课程）</li>
+<li>重新创建一个类来维护分班之后的课程编号方式，包括非插班课程，插班课程，每一类课程又分为A\B档</li>
+</ul>
+<p>###现在要解决的问题</p>
+<ul>
+<li>提取出每个班级原始课程编号对应的人数</li>
+</ul>
+<hr>
+<p>2015年7月3日</p>
+<p>###已经完成的任务</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">重新生成课程编号</li>
+</ul>
+<p>###思路简述</p>
+<ol>
+<li>新建一个类用来存储重新编号的课程，分成四个类别列表，每个列表负责维护一个类别的课程。</li>
+<li>将原先的课程编号以及分组人数遍历提取出来，按照新的规则进行分类</li>
+</ol>
+<p>参数控制：混合班的班级人数</p>
+<p>###下一步需要做的事情</p>
+<ul>
+<li><input disabled="" type="checkbox">使用继承的思想对于现有的代码进行适当重构（不占用过多的时间的情况下，主要是简化代码逻辑）</li>
+<li><input disabled="" type="checkbox">将排课剩下的人，他们上的课程全部算作混合班课程进行添加，让所有人都能够有自己的课程上</li>
+<li><input disabled="" type="checkbox">开始实现模拟退火算法</li>
+<li><input disabled="" type="checkbox">数据可视化工作</li>
+</ul>
+<hr>
+<p>2015年7月5日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">将排课剩下的人，他们上的课程全部算作混合班课程进行添加，让所有人都能够有自己的课程上（对散户编号为原有编号的基础上在加上一个“散”字）</li>
+<li><input checked="" disabled="" type="checkbox">将排班结果以某种形式展现出来（目前还没有想清楚）</li>
+</ul>
+<p>展现办法：</p>
+<ul>
+<li>通过一个表格的形式展现出来</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>课程</th>
+<th align="right">语文</th>
+<th align="center">数学</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A档</td>
+<td align="right">01</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>B档</td>
+<td align="right">$12</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="right">$1</td>
+<td align="center">234</td>
+</tr>
+</tbody>
+</table>
+<p>单元格具体内容：教学班编号+该班级分组数+该班级人数</p>
+<hr>
+<p>2015年7月5日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">教学班编号已经赋值给每个分组中的课程表</li>
+<li><input disabled="" type="checkbox">改进结构，去除在排课之前的课程表，课程数据仅用set存储</li>
+</ul>
+<p>###接下来要做的事情</p>
+<ul>
+<li>散户的一些信息还是需要完善一下，例如couseSet这些信息</li>
+<li>遍历所有分班，将数据添加进能量表中，统计能量表中每一科目的能量值，然后在将最终的能量值（单科的最大值）存入对应位置中，最后统计此次的总的能量值大小</li>
+<li>开始对于课程进行替换，遍历能量表数据，同时将<strong>当天当前班级</strong>相同类型的两门课对调，然后按照第二重新计算能量值</li>
+</ul>
+<p>问题来了：当前班级的相同类型的对调只有在对调普通班的时候是绝对没有问题的，如果调的是混合班的话，就会涉及到别的班的问题，但是在能量表中我们并没有存储混合班的班级数据</p>
+<p>解决办法：暂时优先调整普通班课程，语数外调整的主要范围是上午。混合班课程暂时不作调整</p>
+<ul>
+<li>了解并行计算相关知识，尝试使用并行计算进行穷举</li>
+</ul>
+<hr>
+<p>2015年7月7日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">计算能量值</li>
+</ul>
+<hr>
+<p>2015年7月8日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">交换同班同类课程：按照结果列表中班级的顺序，一个班级一个班级的进行交换，每次交换过后，仅计算此次交换后，对于受到影响的两节课的能量值，其他的能量值可以不用重复计算，然后找出该班级当天交换之后能量值最小的方案</li>
+</ul>
+<p>目前出现的问题：</p>
+<ul>
+<li>音乐美术体育这三门课的方案：老师的想法可能是到时候这三门课在挖出的空里边平均分就好了，不过这样应该也行，但是不知道这样老师的数量够不够</li>
+</ul>
+<p>需要改进的地方</p>
+<ul>
+<li>相同类型的课程才可以调换</li>
+<li>语数外只能够和上午的课程调换</li>
+<li>对于最后一个完全混合班的处理现在思路还不是特别清晰，有待整理</li>
+<li>音乐美术体育这样的课程跳过</li>
+</ul>
+<hr>
+<p>2015年7月9日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">退火算法的领域解的产生：按照之前的思路，是随机某一个班某两天的某两门课程进行交换，产生新的能量表，允许能量值比之前的高，但是依旧可容忍范围之内</li>
+<li><input disabled="" type="checkbox">对于混合班的处理：因为之前是重新给所有的混合班编号了，因此就有可能出现新的教学班中，教学班中包含了多个混合班，而且每个混合班自身的课表中混合课程是不一样的，如果交换了一个符合该混合班的课程，但是交换的单位是教学班，难么就会出现，另外一门课可能教学班中的一个混合班该门课是单独上的，如果遇到这种情况，其实是无法交换的，否则交换了之后的所有顺序都会被打乱。
+<ul>
+<li>这种情况下，只有相同课程的才可以进行调换</li>
+<li><strong>问题的关键在于：班级交换的单位为最后的教学班！</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年7月11日</p>
+<ul>
+<li>对于混合班的所有课程是不作任何调整的，在那里就一直在那里，不会变的，变的只是普通班的课程</li>
+</ul>
+<p>#####初始模板生成思路</p>
+<ol>
+<li>用队列读入所有课程的信息</li>
+<li>出列，如果遇到了该位置不能上或者某门课程不能上，就暂时跳过去，将跳过的课程存储在另一个队列中</li>
+<li>检查另一个队列中是否还有课程，有的话优先出列，然后继续出列原来的课程信息</li>
+<li>出列全部出列完成后，如果刚好排满整个课表，则成功，若没有，则失败，需要重新排课</li>
+</ol>
+<p>####还需要解决的问题</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"><strong>需要和老师讨论的问题</strong>产生领域解的时候，到底采用何种方式产生，是随机还是我们自己指定？</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox">在排课的时候同样需要跳过模板中的这些课程，因此还是需要进行一些处理。处理方式目前的想法给table添加一个属性，用来记录不排课的位置以及不排特定的课程的位置</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox">不借助数据库，将excel文件转换成csv文件进行读取完成分组操作</p>
+<ul>
+<li>创建一个学生类型，将所有基本信息作为做一个对象的属性值存在</li>
+<li>将csv文件中基本信息录入学生对象列表中</li>
+<li>使用LINQ对数据进行分组（完成之前在mysql中做的事情）</li>
+<li><strong>问题</strong>这样的话学生的基本信息就被固定死了，那些字段是不能动的</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox">在排课完成之后，需要输出的内容</p>
+<ul>
+<li>每个学生对应课表</li>
+<li>每个老师对应的课表</li>
+<li>每个教室对应的课表</li>
+<li>每个教学班对应的课表</li>
+<li>每门学科对应的课表</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年7月12日</p>
+<ul>
+<li>
+<p><input disabled="" type="checkbox">使用NOPI类库输出Excel课程表格</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">每个学生对应课表</li>
+<li>每个老师对应的课表</li>
+<li>每个教室对应的课表</li>
+<li>每个教学班对应的课表</li>
+<li>每门学科对应的课表</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox">创建一个配置文件，用来配置课时数和老师数目还有哪些位置不上，用配置文件代替，后期考虑写成窗口，让用户使用excel模板将对应位置的课程做一个不上课的标记！，如果是某门课程不上的话，就写上那门课程的名称</p>
+</li>
+</ul>
+<hr>
+<p>2015年7月15日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">完成学生信息从excel中读取和导出到excel中的工作</li>
+<li><input disabled="" type="checkbox">需要能够输出每次能量最小化之后的能量值的一些情况，包括当前选取的能量课程和数值，其他的能量课程和数值</li>
+</ul>
+<p>老师分配课程方案：</p>
+<ul>
+<li>首先找出最多几个班一起上，确定老师数量的最小值</li>
+<li>然后给每个老师分配一个最多一起上的班级，让老师再寻找和当前分配班级不冲突的课程的另外一个班级，将另外一个班级一起上的课程全部排除（不能一起上），最后确定最开始分配的班能够一起上的全部班</li>
+</ul>
+<p>###学军中学的方案</p>
+<ul>
+<li><input disabled="" type="checkbox">完成教师安排教学班级</li>
+<li><input disabled="" type="checkbox">学军中学语数外分班已经分好了，对于语数外美术音乐体育这样的课程就当做一种类别的调整的时候分块在块的内部进行，通过能量最小来算出最优的方法（12种情况）</li>
+<li><input disabled="" type="checkbox">其他课程排课方法和之前余杭中学的一样，调课的时候也是限定在当前区块的小范围进行调整，而不是所有一起调整</li>
+</ul>
+<p>#####需要修改的地方</p>
+<ul>
+<li>courseSet需要进行调整，看看哪里需要改的</li>
+</ul>
+<hr>
+<p>2015年7月19日</p>
+<ul>
+<li>学军中学的语数外如果已经分配好了，那么是否语数外的分配已经分到了个人，如果是的话，我这边是不能再做语数外的分配的，只能把语数外最终上课的结果给他们</li>
+</ul>
+<hr>
+<p>2015年7月20日</p>
+<ul>
+<li>明天需要和WCC再次讨论一下程序之间如何连接起来的问题</li>
+</ul>
+<hr>
+<p>2015年7月24日</p>
+<ul>
+<li><input disabled="" type="checkbox">通过增加教室来让能量进一步的最小化
+<ul>
+<li>新建一个分组，该分组所有课程标识为“可调”</li>
+<li>首先找出能量最高位置的影响课程（不限混合班和普通班，混合班优先）</li>
+<li>提取所有班级的合并分组号，并且记录在变量中</li>
+<li>将影响课程放在额外教室中，需要同时满足该位置和其他一同上课的分组不发生冲突同时让新的排班方式能量减小</li>
+<li>若所有位置该影响课程都不能排进去，则换一个影响课程班级重新排</li>
+<li>遍历那一天的所有位置，获得新的能量最小的值</li>
+<li>重新寻找能量最高位置的影响课程</li>
+</ul>
+</li>
+</ul>
+<p>我们目前的方案就是将索性将所有的课程全部能够放在一起的就放在一起</p>
+<hr>
+<p>2015年7月25日</p>
+<ul>
+<li>通过实际的算法运行，发现能够进行这种形式添加的课程少之又少，因为大部分课程的利用率都很高，因此不能够在固定在那一天了，而是全部的地方都可以插入</li>
+</ul>
+<hr>
+<p>2015年7月27日</p>
+<ul>
+<li>
+<p><input checked="" disabled="" type="checkbox">老师分组交互操作</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox">当考虑的单个老师的工作量的问题不能通过老师分组解决的时候，就需要单独再开一个教室，然后由用户指定需要把哪个班级分到哪个分组当中去，由计算机来尝试不同的方法使其成功，若不成功，也会告知用户的</p>
+</li>
+<li>
+<p><input checked="" disabled="" type="checkbox">给每一个小类重新编号，格式按照“大类编号*100+小类编号”，这样就可以有效的区分每个大类和小类的编号了，规定0结尾的是共同课程，也就是那个分组的所有小类都要上的课程</p>
+</li>
+</ul>
+<hr>
+<p>2015年7月29日</p>
+<ul>
+<li><input disabled="" type="checkbox">改进使用流程，用户应该首先将教师分组分好了之后剩下的不能分组的再来决定需要增加教室来排哪一个班级的课程。
+<ul>
+<li>首先按照正常流程让用户对于教师进行分组</li>
+<li>用户记录需要通过额外教室才能解决的需要在一起的两个班级（目前能够解决的只能有一个班级）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年8月8日</p>
+<ul>
+<li><input disabled="" type="checkbox">着手解决天女散花问题
+<ul>
+<li>穷举整体置换某一位置课程到另一位置（保证能量值不变）</li>
+<li>求和能量值，以天为单位</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年8月15日</p>
+<p>昌硕中学排课算法改进：</p>
+<ul>
+<li>在王聪聪的程序的基础上知道所有混合班的类别组成情况</li>
+<li>按照之前排班的思路，根据设置的优先级（假设通技优先级最高），在人数上限达到之前对混合班的所有类别进行求交集工作</li>
+<li>求出的交集，进行合并之后，对于混合班中的非混合课程就需要单独拿出来进行处理</li>
+<li>处理方式需要单独进行非混合课程的调课，确保课程模板中的课程能够互相覆盖不重合</li>
+</ul>
+<hr>
+<p>2015年8月21日</p>
+<p>系统结构变更</p>
+<ul>
+<li>数据源为特定格式输出的分班表和学生明细表</li>
+</ul>
+<p>在王聪聪程序中重分混合班之后，接下来系统的排课流程</p>
+<ul>
+<li>重新分组，因为变动的只有混合班，非混合班还是基本上不会变动的，所以在确定groupList的时候只要非混合班的班级相同的话就分在一起，然后每个分组的课程表的Class直接赋值，CourseName就改成groupId</li>
+<li>交换课程的时候，非混合班的分班方法是一样的，混合班不参与分班。</li>
+</ul>
+<p>本周主要对于排课系统的架构进行调整，增强系统的通用性。</p>
+<p>本周工作：</p>
+<p>实现解决天女散花问题的算法。
+对于排课系统架构进行调整，采用“高内聚低耦合”的软件工程思路，将系统分为三大部分：分班、排课、人工调整，每一部分相互独立，数据传递通过excel文件进行。
+目前已经完成了手动分班的数据输入输出，将会在下周完成排课部分的数据输入输出以及人工调整部分的内容。</p>
+<p>下周工作</p>
+<p>下周完成排课部分的数据输入输出以及人工调整部分的输入输出
+着手撰写系统架构说明文档，为协作开发做准备。</p>
+<p>下下周也就是9月1号，我可能就需要准备开学的相关事宜了，到时候可能精力无法集中在这里，不过我会尽可能在此之前将系统相关的文档写出来，方便协作开发。</p>
+<hr>
+<p>2015年8月28日</p>
+<ul>
+<li><input disabled="" type="checkbox">项目合并工作
+<ul>
+<li><input checked="" disabled="" type="checkbox">courseSchedule.cs文件比较完成</li>
+<li><input disabled="" type="checkbox">其他文件全部比较一遍</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox">重写排课的换课程的条件，新建一个数据结构来存储每个位置的排课配置</li>
+<li>重写判定每天的课程上课情况</li>
+</ul>
+<hr>
+<p>2015年8月29日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">项目合并工作
+<ul>
+<li><input checked="" disabled="" type="checkbox">courseSchedule.cs文件比较完成</li>
+<li><input checked="" disabled="" type="checkbox">其他文件全部比较一遍</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox">重写排课的换课程的条件，新建一个数据结构来存储每个位置的排课配置</li>
+<li><input checked="" disabled="" type="checkbox">重写判定每天的课程上课情况</li>
+<li><input disabled="" type="checkbox">测试代码，同时进一步提取参数至外部文件中</li>
+<li><input disabled="" type="checkbox">编写半混班调课中间接口</li>
+</ul>
+<p>半混班调课接口：</p>
+<ul>
+<li>在将分班信息录入的时候，如果遇到半混班格式的数据的时候，就需要进行另一种处理方式</li>
+<li>半混班的格式数据处理方法：</li>
+<li>将原来的格式的数据前边名字都不变，数字末尾加上一个字母B表示半混班，因为一次仅仅处理两个学科，然后直接对半混班的所有课程进行调换，调换之后，位置信息需要换回来，其他的信息不变</li>
+<li>需要检查这样修改课程名称之后是否需要修改教师排班级的时候（排老师班级的时候因为是使用的能量最小化的课程数据），也就是说，修改了课程为半混班课程之后，我们需要使用BetterEnergy.getcourse重新获取修改过后的所有课程的情况，然后其他的流程可以保持不变。</li>
+</ul>
+<hr>
+<p>2015年9月1日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">半混班作为班级属性存在（和混班、非混合班一个属性）</li>
+<li><input disabled="" type="checkbox">添加输出分组的具体课表数据的表格</li>
+<li><input disabled="" type="checkbox">添加读入分组的具体课表数据的接口</li>
+</ul>
+<hr>
+<p>2015年9月2日</p>
+<p>输出具体课表数据方案：</p>
+<ul>
+<li>输出txt文件</li>
+<li>文件名就是索引号，用来确定唯一的分组的，格式为groupListId+groupId，每一个文件名确定一个分组的课程表</li>
+<li>课程表按照二维数组的格式进行存储，每一节课的内容包括了所有的数据，具体包括课程名称班级+课程性质（不混、半混、混）</li>
+</ul>
+<p>课表数据读入方案：</p>
+<ul>
+<li>
+<p>遍历文件夹下的所有文件，读取文件名，对文件名进行解析，然后将文件中的课程数据再次进行解析，分别放入不同的课程表中。</p>
+</li>
+<li>
+<p>读入的时候需要注意的问题：</p>
+</li>
+<li>
+<p>代码前半段和第一次读入分组数据相同，分组数据读入完成之后，重新遍历的时候我们再把新的数据读入。</p>
+</li>
+</ul>
+<p>相关代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#">        <span class="k">public</span> <span class="k">void</span> <span class="n">OutPutCourseTableFile</span><span class="p">(</span><span class="kt">string</span> <span class="n">folderPath</span><span class="p">,</span><span class="n">List</span><span class="p">&lt;</span><span class="n">GroupList</span><span class="p">&gt;</span> <span class="n">resultGroupList</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">resultGroupList</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">resultGroupList</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">List</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="c1">// 输出分组的文件名
+</span><span class="c1"></span>                    <span class="kt">string</span> <span class="n">fileName</span> <span class="p">=</span> <span class="s">&#34;group&#34;</span> <span class="p">+</span> <span class="n">i</span> <span class="p">+</span> <span class="s">&#34;.&#34;</span> <span class="p">+</span> <span class="n">j</span> <span class="p">+</span> <span class="s">&#34;.txt&#34;</span><span class="p">;</span>
+                    <span class="n">FileStream</span> <span class="n">steam</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="s">&#34;./&#34;</span> <span class="p">+</span> <span class="n">folderPath</span><span class="p">+</span><span class="s">&#34;/&#34;</span><span class="p">+</span><span class="n">fileName</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">,</span> <span class="n">FileAccess</span><span class="p">.</span><span class="n">Write</span><span class="p">);</span>
+                    <span class="n">StreamWriter</span> <span class="n">sw</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">steam</span><span class="p">);</span>
+                    <span class="kt">var</span> <span class="n">table</span> <span class="p">=</span> <span class="n">resultGroupList</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">List</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">Curriculum</span><span class="p">.</span><span class="n">table</span><span class="p">;</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">cells</span> <span class="k">in</span> <span class="n">table</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">cell</span> <span class="k">in</span> <span class="n">cells</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="n">sw</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">Class</span> <span class="p">+</span> <span class="s">&#34;_&#34;</span> <span class="p">+</span> <span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span><span class="p">+</span><span class="s">&#34; &#34;</span><span class="p">);</span>
+                            
+                        <span class="p">}</span>
+                        <span class="n">sw</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>2015年9月3日</p>
+<ul>
+<li>所以我最重要的是获取原先课表中的课程，其他所有的数据其实都可以不管的。因此在生成新的课表的时候只需要输出课程名称</li>
+</ul>
+<hr>
+<p>2015年9月4日</p>
+<ul>
+<li>由于WCC重分混合班的分组结果都发生了变化，之前的根据分组来定课表的思想不能够实现，因此要采用新的方法来实现了。</li>
+<li>新的实现方法如下：
+<ul>
+<li>以课程班为中心，根据课程班来找该课程班上课的位置，这样就只需要一个文件就可以存储所有的课程班上课时间</li>
+<li>导入数据的时候仅需要对于数据进行检索就可以确定课程上课时间，这样就可以还原课程表了。因为少的是混合班，因此对于重分之后的课表并没有影响。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年9月7日</p>
+<ul>
+<li>考虑到如果按照课程班级时间的方式进行存储记录，这样的话就需要对体音美这三节课进行处理</li>
+<li>如果要对体音美进行处理，需要在最开始分配教学班级的时候就要进行处理了，这样的话需要改的代码就涉及到了前边的一些问题</li>
+<li>这里到底把体音美正式加入课程表参与能量最小化计算还是仅仅当成占位，下午问一下老师的意见</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="c1">// 判断课程调换到该位置是否违反了该位置的课程限制
+</span><span class="c1"></span>        <span class="k">private</span> <span class="kt">bool</span> <span class="n">CanCellInThisPosition</span><span class="p">(</span><span class="kt">string</span> <span class="n">course</span><span class="p">,</span> <span class="kt">int</span> <span class="n">PositionClass</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">ExchangeRuleList</span><span class="p">[</span><span class="n">PositionClass</span><span class="p">].</span><span class="n">Contains</span><span class="p">(</span><span class="n">course</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">void</span> <span class="n">GetCouseTimeTable</span><span class="p">(</span><span class="kt">string</span> <span class="n">filePath</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">FileStream</span> <span class="n">fileStream</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">);</span>
+            <span class="n">StreamReader</span> <span class="n">sr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamReader</span><span class="p">(</span><span class="n">fileStream</span><span class="p">);</span>
+
+            <span class="c1">// 混合班其实没有读取的必要
+</span><span class="c1"></span>            <span class="k">while</span> <span class="p">(</span><span class="n">sr</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">()</span> <span class="p">!=</span> <span class="s">&#34;混合班&#34;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">string</span><span class="p">[]</span> <span class="n">line</span> <span class="p">=</span> <span class="n">sr</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">().</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
+                <span class="kt">string</span> <span class="n">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+                <span class="kt">int</span> <span class="n">time</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">line</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+
+                <span class="c1">// 体音美
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">==</span> <span class="s">&#34;体育&#34;</span> <span class="p">||</span> <span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">==</span> <span class="s">&#34;音乐&#34;</span> <span class="p">||</span> <span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">==</span> <span class="s">&#34;美术&#34;</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">groupNum</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">name</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">2</span><span class="p">));</span>
+                    <span class="n">GroupList</span> <span class="n">list</span> <span class="p">=</span> <span class="n">resultGroupLists</span><span class="p">[</span><span class="n">groupNum</span><span class="p">];</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="n">Group</span> <span class="n">@group</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="c1">// 修改每个group中的对应的课表课程
+</span><span class="c1"></span>                        <span class="n">CourseCell</span> <span class="n">cell</span> <span class="p">=</span> <span class="k">group</span><span class="p">.</span><span class="n">Curriculum</span><span class="p">.</span><span class="n">table</span><span class="p">[</span><span class="n">time</span> <span class="p">/</span> <span class="n">CourseNumADay</span><span class="p">][</span><span class="n">time</span> <span class="p">%</span> <span class="n">CourseNumADay</span><span class="p">];</span>
+                        <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+                        <span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+                        <span class="n">cell</span><span class="p">.</span><span class="n">Class</span> <span class="p">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">resultGroupLists</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">k</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="n">GroupList</span> <span class="n">list</span> <span class="p">=</span> <span class="n">resultGroupLists</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+                    <span class="c1">// 当课程集中包含该课程的时候才深入遍历修改课表
+</span><span class="c1"></span>                    <span class="k">if</span> <span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="n">CourseSet</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                    <span class="p">{</span>
+                        <span class="k">foreach</span> <span class="p">(</span><span class="n">Group</span> <span class="n">@group</span> <span class="k">in</span> <span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="c1">// 修改每个group中的对应的课表课程
+</span><span class="c1"></span>                            <span class="n">CourseCell</span> <span class="n">cell</span> <span class="p">=</span> <span class="k">group</span><span class="p">.</span><span class="n">Curriculum</span><span class="p">.</span><span class="n">table</span><span class="p">[</span><span class="n">time</span><span class="p">/</span><span class="n">CourseNumADay</span><span class="p">][</span><span class="n">time</span><span class="p">%</span><span class="n">CourseNumADay</span><span class="p">];</span>
+                            <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">=</span> <span class="n">name</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+                            <span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span> <span class="p">=</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="sc">&#39;_&#39;</span><span class="p">)</span> <span class="p">?</span> <span class="m">2</span> <span class="p">:</span> <span class="m">0</span><span class="p">);</span>
+
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">sr</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+        <span class="p">}</span>
+        
+<span class="c1">// 输出课程教室时间对照表
+</span><span class="c1"></span>        <span class="k">public</span>  <span class="k">void</span> <span class="n">OutputCourseTimePairs</span><span class="p">(</span><span class="kt">string</span> <span class="n">filePath</span><span class="p">,</span><span class="n">List</span><span class="p">&lt;</span><span class="n">GroupList</span><span class="p">&gt;</span> <span class="n">resultGroupLists</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">pureClassCourseTime</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;();</span>
+            <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">mixedClassCourseTime</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;();</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">k</span> <span class="p">&lt;</span> <span class="n">resultGroupLists</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">k</span><span class="p">++)</span>
+            <span class="p">{</span>
+                <span class="n">GroupList</span> <span class="n">list</span> <span class="p">=</span> <span class="n">resultGroupLists</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Curriculum</span><span class="p">.</span><span class="n">table</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="n">List</span><span class="p">&lt;</span><span class="n">CourseCell</span><span class="p">&gt;</span> <span class="n">cells</span> <span class="p">=</span> <span class="n">list</span><span class="p">.</span><span class="n">List</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Curriculum</span><span class="p">.</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="p">&lt;</span> <span class="n">cells</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">j</span><span class="p">++)</span>
+                    <span class="p">{</span>
+                        <span class="n">CourseCell</span> <span class="n">cell</span> <span class="p">=</span> <span class="n">cells</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                        <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">time</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+
+                        <span class="c1">// 判断课程性质
+</span><span class="c1"></span>                        <span class="c1">// 若为纯班
+</span><span class="c1"></span>                        <span class="c1">// 半混班和纯班的处理方法一样
+</span><span class="c1"></span>                        <span class="k">if</span> <span class="p">((</span><span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span> <span class="p">==</span> <span class="m">0</span>　<span class="p">||</span> <span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span> <span class="p">==</span> <span class="m">2</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">!=</span> <span class="s">&#34;!&#34;</span><span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">==</span> <span class="s">&#34;可调&#34;</span><span class="p">)</span>
+                            <span class="p">{</span>
+                                <span class="n">pureClassCourseTime</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span><span class="p">,</span> <span class="k">out</span> <span class="n">time</span><span class="p">);</span>
+                                <span class="k">if</span> <span class="p">(</span><span class="n">time</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                                    <span class="n">time</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">);</span>
+                                <span class="k">else</span>
+                                    <span class="n">pureClassCourseTime</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span><span class="p">,</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">)</span> <span class="p">});</span>
+
+                                <span class="k">continue</span><span class="p">;</span>
+                            <span class="p">}</span>
+                            <span class="c1">// 体音美咋整？
+</span><span class="c1"></span>                            <span class="k">if</span> <span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">==</span> <span class="s">&#34;体育&#34;</span> <span class="p">||</span> <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">==</span> <span class="s">&#34;音乐&#34;</span> <span class="p">||</span> <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">==</span> <span class="s">&#34;美术&#34;</span><span class="p">)</span>
+                            <span class="p">{</span>
+                                <span class="n">pureClassCourseTime</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span><span class="p">,</span> <span class="k">out</span> <span class="n">time</span><span class="p">);</span>
+                                <span class="n">cell</span><span class="p">.</span><span class="n">Class</span> <span class="p">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">CourseName</span> <span class="p">+</span> <span class="n">k</span><span class="p">;</span>
+                                
+                            <span class="p">}</span>
+                               
+                            <span class="n">pureClassCourseTime</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">Class</span><span class="p">,</span> <span class="k">out</span> <span class="n">time</span><span class="p">);</span>
+
+                            <span class="k">if</span> <span class="p">(</span><span class="n">time</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+                                <span class="n">time</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span><span class="p">*</span><span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">);</span>
+                            <span class="k">else</span>
+                                <span class="n">pureClassCourseTime</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">Class</span><span class="p">,</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span> <span class="p">{(</span><span class="n">i</span><span class="p">*</span><span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">)});</span>
+                        <span class="p">}</span>
+                        <span class="c1">// 混合班只需要添加科目名称，不需要添加课程名称
+</span><span class="c1"></span>                        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">isSpecialCourse</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> 
+                        <span class="p">{</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="n">mixedClassCourseTime</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">Class</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> <span class="k">out</span> <span class="n">time</span><span class="p">))</span>
+                                <span class="n">time</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">);</span>
+                            <span class="k">else</span>
+                                <span class="n">mixedClassCourseTime</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">cell</span><span class="p">.</span><span class="n">Class</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">),</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;()</span> <span class="p">{</span> <span class="p">(</span><span class="n">i</span> <span class="p">*</span> <span class="n">CourseNumADay</span> <span class="p">+</span> <span class="n">j</span><span class="p">)</span> <span class="p">});</span>
+                        <span class="p">}</span>
+                        
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="c1">//  将数据输出至文本文件中
+</span><span class="c1"></span>            <span class="n">FileStream</span> <span class="n">fileStream</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span><span class="n">FileMode</span><span class="p">.</span><span class="n">Create</span><span class="p">);</span>
+            <span class="n">StreamWriter</span> <span class="n">sw</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">fileStream</span><span class="p">);</span>
+
+            <span class="c1">// 输出纯班数据
+</span><span class="c1"></span>            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">pureClassCourseTime</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sw</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span><span class="p">+</span><span class="s">&#34; &#34;</span><span class="p">+</span><span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1">// 输出混合班数据
+</span><span class="c1"></span>            <span class="n">sw</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;混合班&#34;</span><span class="p">);</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">mixedClassCourseTime</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="k">in</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sw</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span> <span class="p">+</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="n">sw</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+        <span class="p">}</span>
+        
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>2015年9月7日</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">public</span> <span class="k">void</span> <span class="n">GetTeacherClassLists</span><span class="p">(</span><span class="kt">string</span> <span class="n">filePath</span><span class="p">,</span> <span class="kt">string</span> <span class="n">principle</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">IWorkbook</span> <span class="n">book</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HSSFWorkbook</span><span class="p">(</span><span class="n">fs</span><span class="p">);</span>
+                <span class="n">ISheet</span> <span class="n">sheet</span> <span class="p">=</span> <span class="n">book</span><span class="p">.</span><span class="n">GetSheet</span><span class="p">(</span><span class="n">principle</span><span class="p">);</span>
+
+                <span class="n">teacherListsStr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;();</span>
+                <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">teacherDictionary</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;();</span>
+                <span class="c1">// 遍历教师列表
+</span><span class="c1"></span>                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">sheet</span><span class="p">.</span><span class="n">LastRowNum</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="n">IRow</span> <span class="n">ir</span> <span class="p">=</span> <span class="n">sheet</span><span class="p">.</span><span class="n">GetRow</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                    <span class="kt">string</span> <span class="n">teacher</span> <span class="p">=</span> <span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span>
+                    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">classList</span><span class="p">;</span>
+                    <span class="n">teacherDictionary</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">teacher</span><span class="p">,</span> <span class="k">out</span> <span class="n">classList</span><span class="p">);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">classList</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                        <span class="n">teacherDictionary</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">teacher</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">ToString</span><span class="p">()});</span>
+                    <span class="k">else</span> <span class="n">classList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">ToString</span><span class="p">());</span>
+                <span class="p">}</span>
+
+                <span class="c1">// 转换数据格式
+</span><span class="c1"></span>                <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">teacherDictionary</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">courses</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">s</span> <span class="k">in</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">courses</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="n">teacherListsStr</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">courses</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>2015年9月8日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">接入王聪聪的老师排班程序输出结果</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c#" data-lang="c#"><span class="k">public</span> <span class="k">void</span> <span class="n">GetTeacherClassLists</span><span class="p">(</span><span class="kt">string</span> <span class="n">filePath</span><span class="p">,</span> <span class="kt">string</span> <span class="n">principle</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">fs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FileStream</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">FileMode</span><span class="p">.</span><span class="n">Open</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">IWorkbook</span> <span class="n">book</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HSSFWorkbook</span><span class="p">(</span><span class="n">fs</span><span class="p">);</span>
+                <span class="n">ISheet</span> <span class="n">sheet</span> <span class="p">=</span> <span class="n">book</span><span class="p">.</span><span class="n">GetSheet</span><span class="p">(</span><span class="n">principle</span><span class="p">);</span>
+                <span class="c1">// 若没有该科目，跳过此次读取
+</span><span class="c1"></span>                <span class="k">if</span> <span class="p">(</span><span class="n">sheet</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+                <span class="n">teacherListsStr</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;();</span>
+                <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">teacherDictionary</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;();</span>
+                <span class="c1">// 遍历教师列表
+</span><span class="c1"></span>                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">sheet</span><span class="p">.</span><span class="n">LastRowNum</span><span class="p">+</span><span class="m">1</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+                <span class="p">{</span>
+                    <span class="n">IRow</span> <span class="n">ir</span> <span class="p">=</span> <span class="n">sheet</span><span class="p">.</span><span class="n">GetRow</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                    <span class="kt">string</span> <span class="n">teacher</span> <span class="p">=</span> <span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">0</span><span class="p">).</span><span class="n">ToString</span><span class="p">();</span>
+                    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">classList</span><span class="p">;</span>
+                    <span class="n">teacherDictionary</span><span class="p">.</span><span class="n">TryGetValue</span><span class="p">(</span><span class="n">teacher</span><span class="p">,</span> <span class="k">out</span> <span class="n">classList</span><span class="p">);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">classList</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+                        <span class="n">teacherDictionary</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">teacher</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;()</span> <span class="p">{</span><span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">ToString</span><span class="p">()});</span>
+                    <span class="k">else</span> <span class="n">classList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">ir</span><span class="p">.</span><span class="n">GetCell</span><span class="p">(</span><span class="m">1</span><span class="p">).</span><span class="n">ToString</span><span class="p">());</span>
+                <span class="p">}</span>
+                <span class="c1">// 转换数据格式
+</span><span class="c1"></span>                <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">teacherDictionary</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">courses</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+                    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">s</span> <span class="k">in</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">courses</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="n">teacherListsStr</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">courses</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>半混班的能够做到根据能量最小化的来计算换课原则，尤其是对于两门课程课时不相等的情况下，需要重新设计数据结构来存储课程位置</li>
+<li>然后遍历每一种交换可能性，计算总的能量值，比较大小（这个过程和之前的能量最小化过程是一样的）</li>
+<li>如何遍历每一种可能性，这是目前需要着重考虑的地方</li>
+</ul>
+<p>###遍历每一种交换可能性的方法</p>
+<p>相关资料：</p>
+<p>组合算法<br>
+本程序的思路是开一个数组，其下标表示1到m个数，数组元素的值为1表示其下标代表的数被选中，为0则没选中。</p>
+<ul>
+<li>首先初始化，将数组前n个元素置1，表示第一个组合为前n个数。</li>
+<li>然后从左到右扫描数组元素值的“10”组合，找到第一个“10”组合后将其变为“01”组合，同时将其左边的所有“1”全部移动到数组的最左端。</li>
+<li>当第一个“1”移动到数组的m-n的位置，即n个“1”全部移动到最右端时，就得到了最后一个组合。</li>
+<li>例如求5中选3的组合：  <br>
+1   1   1   0   0   //1,2,3  <br>
+1   1   0   1   0   //1,2,4  <br>
+1   0   1   1   0   //1,3,4  <br>
+0   1   1   1   0   //2,3,4  <br>
+1   1   0   0   1   //1,2,5  <br>
+1   0   1   0   1   //1,3,5  <br>
+0   1   1   0   1   //2,3,5  <br>
+1   0   0   1   1   //1,4,5  <br>
+0   1   0   1   1   //2,4,5  <br>
+0   0   1   1   1   //3,4,5</li>
+</ul>
+<p>####组合算法具体思路：</p>
+<ol>
+<li>统计两门课程的课时数，以多的那门课程作为总的容器数，少的作为放置的球的数量</li>
+<li>新建一个整型数组，用来模拟组合问题</li>
+<li>新建一个整型数组对应的课程名称位置索引，用来对应数组的编号</li>
+<li>开始按照算法思路进行循环，使用能量最小化的算法进行计算，比较每次交换之后的能量值的大小</li>
+<li>找出能量值最小的交换方法，作为最终方法使用</li>
+</ol>
+<hr>
+<p>2015年9月9日</p>
+<p>####确定半混班调课规则</p>
+<ul>
+<li>学时数一样，直接调换，同时计算排课后的能量值，若能量值升高，则告诉用户，半混班排课失败</li>
+<li>学时数不一样，按照优先级顺序，计算该门课程所在位置的能量值，并根据该位置该科目同时上课数目由高到低进行排序，然后两门课均从高到低进行排列，若总的能量值升高，同样告诉用户，半混班排课失败</li>
+</ul>
+<p>伪代码实施步骤：</p>
+<ol>
+<li>使用字典来存储键值对，课程位置和该位置的该科目的数量，然后根据值由高到低进行排序</li>
+<li>排序完成后，我们开始两门课程位置从高到低一一对应交换，交换之后若能量值升高，则不进行交换，并且告诉用户（这里单独写成一个函数，感觉老师这一点想的还是有问题）</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">st=&gt;start: 开始
+e=&gt;end: 结束
+op1=&gt;operation: My Operation
+sub1=&gt;subroutine: My Subroutine
+cond=&gt;condition: Yes
+or No?:&gt;http://www.google.com
+io=&gt;inputoutput: catch something...
+
+st-&gt;op1-&gt;cond
+cond(yes)-&gt;io-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op1
+
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>2015年9月12日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">完成不相等时的半混班排课算法</li>
+<li><input checked="" disabled="" type="checkbox">当用户对于同一学科进行半混班排课时的处理：保证半混班名称解析之后除了班号之外的其他数据都能够对应上，这样就确定一个班级</li>
+<li><input checked="" disabled="" type="checkbox">限制每一门课程每天最多上的次数</li>
+</ul>
+<hr>
+<p>2015年10月2日</p>
+<ul>
+<li><input disabled="" type="checkbox">增加单独某个班级某个位置不排任何课程
+<ul>
+<li>该配置项的格式为！+不排课的班级，若该位置所有班级不排课程，则仅仅是一个！就行了</li>
+<li>在进行能量最小化调课的时候，判断位置课程的courseName，若是！，则继续判断是否还有后续字符，若有后续字符的话，根据后续字符自动跳过某些班级该位置课程，保持为空的情况。</li>
+<li>但是需要考虑如果班级编号变成了两位数甚至更多位数的时候的情况，这个时候就需要重新定义格式，我觉得还是按照的-作为分隔符</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年10月7日</p>
+<ul>
+<li><input disabled="" type="checkbox">增加每个班级单独配置课表
+<ul>
+<li>用户对于需要进行不同处理的班级进行命名，例如，需要对一班进行处理就新建一个“1.txt”文件</li>
+<li>系统在最开始初始化课表的时候，首先看有没有对应班级的课表文件，如果有的话就用，没有的话就用默认的课表模板</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2015年10月10日</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox">合并班会体育课表
+<ul>
+<li><input checked="" disabled="" type="checkbox">读入班会体育课表</li>
+<li><input checked="" disabled="" type="checkbox">遍历所有分组，进行课程交换</li>
+</ul>
+</li>
+</ul>
+<p>需要制定一个新的规则，用来区分班会课、体育课</p>
+<ul>
+<li>
+<p>区分不排课位置和不交换位置</p>
+<ul>
+<li>courseName设置为“！”</li>
+<li>若Class为null，则是不排课位置</li>
+<li>若Class为其他的，则是不交换位置</li>
+</ul>
+</li>
+<li>
+<p>每日上课程的重复数判断</p>
+</li>
+</ul>
+<hr>
+<p>2015年10月13日</p>
+<ul>
+<li>
+<p>可调位置的解决</p>
+</li>
+<li>
+<p>半混班的换课调整以及读入调整</p>
+</li>
+<li>
+<p>第七步中的去掉对应课程之后只输出有的课程</p>
+</li>
+<li>
+<p>将课程集合判断语句深入到每个group中</p>
+</li>
+<li>
+<p>第六步定位：系统自动调课以及半混班和重分混合班</p>
+</li>
+<li>
+<p>第六步中，在第一次读取使用课程模板，直接读取课程模板中的内容，之后如果不使用课程模板的话，会遇到一种特殊情况：当某个分组的所有的混合班都变成了半混班的时候，而这个变化table中是无法反映出来的，因此会产生混合班数据丢失的问题，这个时候其实可以从课程模板中读取文件来解决，由于第六步不涉及到人工修改，就只能这样通过两个来进行了。。</p>
+</li>
+<li>
+<p>也就是说，这个程序需要进一步设计其通用性</p>
+</li>
+<li>
+<p>现在我发现对于语数外和非语数外的课程是两种不同的方法，所以从根本上来说，对付语数外和非语数外的架构其实是不一样的</p>
+</li>
+</ul>
+<hr>
+<p>2015年10月14日</p>
+<ul>
+<li>修正table.xls表中课程显示不全的问题（在之前的版本中，只考虑纯班的数据输出，而纯班在所有的group中都有，当时为了减少遍历次数，只遍历了第一个group中的纯班的数据，这样就导致新版本中输出课程的时候只输出了group0的所有课程，导致了输出课程不全）
+<ul>
+<li>遍历输出课程时，遍历所有group输出，而不是仅仅遍历第一个group</li>
+</ul>
+</li>
+<li>修正半混班和重分混合班的时混合班数据还原的问题
+<ul>
+<li>在读入半混班数据的时候需要严格匹配到每个group的课程集合中是否有这个课程，然后再输入</li>
+<li>对于普通混合班的数据就从课程模板中读取，然后再根据课程情况修改</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>2014年10月16日</p>
+<ul>
+<li>输出table表时附带课程所在的GroupList编号，方便用户查看</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>模拟退火算法在排课问题中的应用_耿幼平 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>基于模拟退火算法的高校排课系统研究_詹亚坤 <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-10-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B6%AF/">研究生涯</a>
+          <a href="https://blog.fangd123.com/tags/%E6%8E%92%E8%AF%BE/">排课</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">自然语言处理实验环境搭建（Ubuntu）</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/window8-1-10-centos7-hardware-install/">
+            <span class="next-text nav-default">Windows 8.1/10 CentOS7 硬盘安装完美解决方案</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-10-16 10:24:00 \x2b0800 CST',
+        title: '排课系统思路',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

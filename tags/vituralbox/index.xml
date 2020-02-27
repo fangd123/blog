@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vituralbox on fangd123</title>
+    <link>https://blog.fangd123.com/tags/vituralbox/</link>
+    <description>Recent content in vituralbox on fangd123</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Nov 2015 11:30:10 -0500</lastBuildDate>
+    
+	<atom:link href="https://blog.fangd123.com/tags/vituralbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总</title>
+      <link>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</link>
+      <pubDate>Sat, 28 Nov 2015 11:30:10 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</guid>
+      <description>我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h</description>
+    </item>
+    
+  </channel>
+</rss>

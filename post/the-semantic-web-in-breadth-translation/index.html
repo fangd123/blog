@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>语义网络略解 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="语义网络略解" />
+<meta property="og:description" content="个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/" />
+<meta property="article:published_time" content="2015-11-28T11:46:42-05:00" />
+<meta property="article:modified_time" content="2015-11-28T11:46:42-05:00" />
+<meta itemprop="name" content="语义网络略解">
+<meta itemprop="description" content="个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符">
+<meta itemprop="datePublished" content="2015-11-28T11:46:42-05:00" />
+<meta itemprop="dateModified" content="2015-11-28T11:46:42-05:00" />
+<meta itemprop="wordCount" content="1431">
+
+
+
+<meta itemprop="keywords" content="语义网络,semantic web," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="语义网络略解"/>
+<meta name="twitter:description" content="个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">语义网络略解</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-11-28 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 1431 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><em>个人翻译，若有不当之处，还请多多指教</em></p>
+<p>by Aaron Swartz
+原文链接：<a href="http://logicerror.com/semanticWeb-long">The Semantic Web In Breadth</a></p>
+<p>**注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。</p>
+<h1 id="标识符统一资源标识符uri">标识符：统一资源标识符（URI）</h1>
+<p>如果我想讨论什么东西，首先我必须定义它是什么。要不然你怎么知道我说的是什么呢？我可以比较委婉地表达：『北边的星星』『杂货店的怪人』我也可以选择更加直接的方式『北极星』</p>
+<p>为了定义网页上的条目，我们也用标识符。因为我们使用统一标识符系统，也因为每个条目被当做一种『资源』，我们称这些标识符『统一资源标识符』或者URI。我们可以给予任何事物一个URI，任何拥有URI的事物都能够被称之为『在网页上』：你，你上周买的书，在你耳旁嗡嗡的苍蝇以及你能够想到的任何事物——他们都能够拥有一个URI。</p>
+<p>URI是网页的基础。几乎其他网页的每个部分都可以被替代，而URI不能：它将网页剩余的部分聚集在一起。</p>
+<p>你也许已经很熟悉一种形式的URI：URL或者统一资源定位器。URL是一个地址，通过它你可以浏览一个页面，例如：http://www.w3.org/Addressing/。如果你对它进行解析，你就能看到一个URL告诉你的电脑到哪里去找一个特定的资源（在这个例子中 ，是W3C的Addressing站点）。不像大部分其他形式的URI，URL既是标识符又是定位器。和『mid:』URI相比较，『mid:』URI定义的是一条邮件消息，但是它不能够给你定位邮件消息的副本。</p>
+<p>对于任何人或者组织来说，网络太大了，所以每人可以控制它，URI是去中心化的。没有任何个人或者组织能够控制谁创造了URI或者谁在使用URI。一些URL模式（例如http:）以来中心化系统（例如DNS），其他模式（例如freenet:）是完完全全的去中心化的。</p>
+<p>这就意味着你不需要任何人的许可便可创造URI。你甚至能够为不属于你的东西创造URI。这种灵活性使得URI十分强大，同时也带来了很多问题。因为任何人都能够创造URI，我们将不可避免地使用多种URI表示同一个东西。更糟的是，没有办法知道这两个URI是不是刚好指向同一个资源。因此，我们不能够很确信地说出一个给定的URI是什么意思。但是如果我们想要创造语义网络一样匿名的东西的话，这是必须付出的代价。</p>
+<p>创造URI的通常的办法是用一个网页。这个网页描述对象的定义以及解释页面的URL是那个对象的URI。例如，我想为我的『Weaving the Web』副本创造一个URI。首先，我创造一个页面描述我的副本。然后，我在页面上标注页面的URL作为那本书的我的副本的URI。通过这样做，我已经将URI和我的副本联系起来了。创建一个URI就是这么简单。</p>
+<p>你也许已经注意到了在这个例子中，URI做了两件事：它既代表一本实际存在的书，也代表一个描述它的页面。这是一些讨论的——被称之为语义网络标识问题。它是语义网络工作者进场讨论的问题。</p>
+<p>这是需要理解的一个重要的事实。URI并不是一个告诉你的电脑如何获得网络上特定文件（即使它也做这件事）的指令的集合。它是一种『资源』。这种资源既可以通过网络获得也可能不行。URI可能或者不能为你的电脑提供关于这个资源更多的信息。是的，URL作为一种URI的类型，它可以提供关于资源的信息，或者它自己生成这种资源，或者别的方法提供URI相关的信息以及他们正在开发的标识资源。事实上，能够表达一些URI的相关信息是语义网络的重要部分。但是你不应该假设URI能够做除了提供一个资源标识符之外的任何事情。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-11-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/%E8%AF%AD%E4%B9%89%E7%BD%91%E7%BB%9C/">语义网络</a>
+          <a href="https://blog.fangd123.com/tags/semantic-web/">semantic web</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/one-moment/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">一念</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/">
+            <span class="next-text nav-default">Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-11-28 11:46:42 -0500 -0500',
+        title: '语义网络略解',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

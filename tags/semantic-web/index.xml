@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>semantic web on fangd123</title>
+    <link>https://blog.fangd123.com/tags/semantic-web/</link>
+    <description>Recent content in semantic web on fangd123</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 28 Nov 2015 11:46:42 -0500</lastBuildDate>
+    
+	<atom:link href="https://blog.fangd123.com/tags/semantic-web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>语义网络略解</title>
+      <link>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</link>
+      <pubDate>Sat, 28 Nov 2015 11:46:42 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</guid>
+      <description>个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符</description>
+    </item>
+    
+  </channel>
+</rss>

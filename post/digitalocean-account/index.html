@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SSD云主机DigitalOcean配置手记—上篇 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="Part 1—账户注册&amp;amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/digitalocean-account/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SSD云主机DigitalOcean配置手记—上篇" />
+<meta property="og:description" content="Part 1—账户注册&amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/digitalocean-account/" />
+<meta property="article:published_time" content="2015-02-12T12:14:14-05:00" />
+<meta property="article:modified_time" content="2015-02-12T12:14:14-05:00" />
+<meta itemprop="name" content="SSD云主机DigitalOcean配置手记—上篇">
+<meta itemprop="description" content="Part 1—账户注册&amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有">
+<meta itemprop="datePublished" content="2015-02-12T12:14:14-05:00" />
+<meta itemprop="dateModified" content="2015-02-12T12:14:14-05:00" />
+<meta itemprop="wordCount" content="2779">
+
+
+
+<meta itemprop="keywords" content="digital ocean," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSD云主机DigitalOcean配置手记—上篇"/>
+<meta name="twitter:description" content="Part 1—账户注册&amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SSD云主机DigitalOcean配置手记—上篇</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-02-12 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 2779 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1注册开通paypal">1.注册开通Paypal</a></li>
+    <li><a href="#2注册digital-ocean账户">2.注册Digital Ocean账户</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#putty基本介绍">PuTTY基本介绍</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#添加公钥认证">添加公钥认证</a>
+      <ul>
+        <li><a href="#putty使用ssh-key登录">PuTTY使用SSH Key登录</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="part-1账户注册建立云主机">Part 1—账户注册&amp;建立云主机</h1>
+<blockquote>
+<p>最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有微软、亚马逊、谷歌这些已经在国际上做云主机比较成熟的企业也针对国内市场提供服务了。在这些服务商中，我听到最多的要数Digital Ocean这家成立于2013年的公司，性价比超高，云主机包月价格竟然和国内的一些主机服务的价格一样，而且还有各式各样的优惠，最吸引我的就是要数GitHUb大礼包里边赠送的$100优惠券，算下来够用两年了，哈哈~</p>
+</blockquote>
+<h2 id="1注册开通paypal">1.注册开通Paypal</h2>
+<p>由于Digital Ocean验证账户的方式是你需要使用信用卡或者Paypal往账户里边充5美元，考虑咱们学生目前没有信用卡，因此推荐使用Paypal充值。</p>
+<p>Paypal就不用我多介绍了，钢铁侠在现实中的原型Iron Musk做的三件事之一，现在Paypal也和银联合作，只要银行卡上有银联标志都可以进行绑定账户，注册也比较简单，按照表单要求填就是了，<a href="https://www.paypal.com/c2/webapps/mpp/home?locale.x=zh_C2" title="paypal主页">点击这里</a>可以直接进入Paypal中文主页。</p>
+<p>接着就要选择Paypal账户类型了，如果你只需要使用Paypal付钱买东西而不是卖东西收钱的话，可以选择“个人”，开始填写基本信息，最后一项是你的银联卡号，Paypal会自动识别卡类型（虽然不知道为什么中国银行的借记卡识别不出来），按照要求填就好。</p>
+<p>按照提示一步一步进行全部完成后，Paypal便注册开通了。</p>
+<h2 id="2注册digital-ocean账户">2.注册Digital Ocean账户</h2>
+<p><a href="https://www.digitalocean.com/?refcode=ae5f8c8a9e9f">点击这里</a>进入Digital Ocean账户注册页面，需要填写的内容其实很简单，按照页面要求进行填写就行。</p>
+<p>在验证邮箱之后，需要往账户里充值才能激活账户，这里我们就可以使用之前申请的Paypal账户进行充值。</p>
+<p>在注册的页面最下方有一个推广码填写，填写之后会免费送你10刀，大家可以填这个ae5f8c8a9e9f。如果你之前在github上验证了学生账户，github大礼包里边有一个100刀的优惠码，大家感兴趣的话可以尝试一下，链接在这里<a href="https://education.github.com/pack/">GitHub Student Developer Pack - GitHub Education</a></p>
+<p>接下来是主机配置，包括选择主机名、服务器机房（建议旧金山）、系统（还可以选择一键集成的环境，我用的是CentOS 7）、主机配置（我选择的是最低的，其实也够啦~），这些选好后就可以尽情享用啦~</p>
+<p>附：这里给大家一个详细一点的介绍链接：</p>
+<p><em><a href="http://since1989.org/internet/digitalocean-free-vps-server.html">DigitalOcean免费VPS申请开通教程 | 我是王掌柜</a>（这个教程的版本稍微有些老，不过还基本上的流程是一样的）</em></p>
+<h1 id="part-2ssh连接droplet">Part 2—SSH连接Droplet</h1>
+<blockquote>
+<p>此文主要参考自Digital Ocean社区，链接地址：<a href="https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh">https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh</a></p>
+</blockquote>
+<p>话说DO社区的这篇教程已经讲得很清楚了，老外写的文章就是这点好，写的文章简单易懂，深入浅出，连我这个门外汉都能明白说了什么。</p>
+<p>作为社区的这篇文章的补充，有几个地方对于咱们这种新手小白来说还是有点难度的，我在这里一一记录之。</p>
+<p><!-- raw HTML omitted -->_如果大家按照DO社区的教程配置的时候遇到了任何问题，可以直接在社区底下留言，或者在我的文章下边留言，我会看看能否帮助解决。 :-) _<!-- raw HTML omitted --></p>
+<h2 id="putty基本介绍">PuTTY基本介绍</h2>
+<p>PuTTY是windows环境下一款支持SSH远程登录的终端模拟器。好吧，如果你不知道什么是终端那就赶紧去看《鸟哥的Linux私房菜—基础篇》去吧！</p>
+<blockquote>
+<p>PuTTY is a free implementation of Telnet and SSH for Windows and Unix platforms, along with an <code>xterm</code> terminal emulator</p>
+</blockquote>
+<p>这里放出官方的下载页面链接：<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY Download Page</a></p>
+<p>百度最让人讨厌的地方就是很多关键字搜索靠前的结果根本不是官方的内容，这就给了很多垃圾站很多机会，记得有次我点开下载竟然乱安装了一大堆东西，从此像这样需要了解官方的东西我就再也不用百度了，坑~大家可以用<a href="http://cn.bing.com/">必应</a>或者<a href="http://www.gfsoso.com/">谷粉搜搜</a>（国人自制谷歌日本镜像）</p>
+<p>其实PuTTY就是一个文件而已（我喜欢这么简单的软件），直接点击putty.exe就可以下载了。这里大家再下载一个puttygen.exe，在教程的下一讲中将会用到。</p>
+<p>软件的使用方法也很简单，只需要输入服务器ip，然后直接点open就好了，接下来会弹出一个模拟终端，按照提示输入用户名（root）和密码（发到你申请账户时填的邮箱中了），接下来就和教程里边讲的一样了。</p>
+<h1 id="part-3centos-7基本配置">Part 3—CentOS 7基本配置</h1>
+<blockquote>
+<p>此文主要参考自Digital Ocean社区，链接地址：<a href="https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh">https://www.digitalocean.com/community/tutorials/how-to-connect-to-your-droplet-with-ssh</a></p>
+</blockquote>
+<p>接着上一篇，如果说上一篇是开胃菜的话，这一篇才算是主菜的说，有许多重量级配置在这篇文章中完成。</p>
+<p>同样作为社区的这篇文章的补充，有几个地方对于咱们这种新手小白来说还是有点难度的，我在这里一一记录之。</p>
+<p><!-- raw HTML omitted -->_如果大家按照DO社区的教程配置的时候遇到了任何问题，可以直接在社区底下留言，或者在我的文章下边留言，我会看看能否帮助解决。 :-) _<!-- raw HTML omitted --></p>
+<h2 id="添加公钥认证">添加公钥认证</h2>
+<p>这一步，有些操作是在自己的电脑上完成，文章只讲了Linux下的操作，对于我们大多数人来说用的环境还是windows，这个时候在上一篇文章_《<a href="http://blog.zidazhan.com/?p=14">SSD云主机DigitalOcean配置手记Part 2—SSH连接Droplet</a>》中下载下来的puttygen.exe，按照下边的这个链接中的步骤分别生成公钥和私钥：_</p>
+<blockquote>
+<p>《<a href="http://jingyan.baidu.com/article/ea24bc39b42ec2da62b331df.html">如何使用puttygen生成密钥_百度经验</a>》</p>
+</blockquote>
+<p>完成后，在DO社区教程中本地操作的步骤就可以跳过了，然后直接复制puttygen中的公钥到.ssh/authorized_keys文件中（在终端中单击鼠标右键就粘贴啦~）</p>
+<h3 id="putty使用ssh-key登录">PuTTY使用SSH Key登录</h3>
+<p>教程中在终端配置好用户权限</p>
+<p>这一部分可以参考以下这篇文章该部分内容（我当时就是参考它的）</p>
+<blockquote>
+<p><a href="http://www.zxc.so/do-ssh-key.html">《DigitalOcean的Droplet怎么添加SSH Key和使用SSH Key登录 | So Simple》</a></p>
+</blockquote>
+<h1 id="part-4centos-7附加配置">Part 4—CentOS 7附加配置</h1>
+<blockquote>
+<p>此文作为自Digital Ocean社区教程的补充，教程链接地址：<a href="https://www.digitalocean.com/community/tutorials/additional-recommended-steps-for-new-centos-7-servers">Additional Recommended Steps for New CentOS 7 Servers | DigitalOcean</a></p>
+</blockquote>
+<p>在上一篇文章中，我们已经完成了CentOS的基本配置，包括建立user账户，配置账户权限以及锁定SSH。这篇教程将进行一些附加的但是建议的配置，就我的经验来看，这些配置其实是很重要的，尤其是防火墙以及swap的配置，一个是为了主机安全，另一个则是为了最大限度利用主机的性能，我最开始没有配置swap的时候配置LAMP的时候就遇到了内存不足的情况，Mariadb一度无法运行，在配置了swap之后问题得到了解决。</p>
+<p>这一节的配置貌似没有什么难度特别大的地方，大家一步一步按照教程配置就行了。</p>
+<p><em>如果大家按照DO社区的教程配置的时候遇到了任何问题，可以直接在社区底下留言，或者在我的文章下边留言，我会看看能否帮助解决。</em></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-02-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/digital-ocean/">digital ocean</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/do-configuration/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SSD云主机DigitalOcean配置手记—下篇</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/xinnianxinqidian/">
+            <span class="next-text nav-default">新年新起点</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-02-12 12:14:14 -0500 -0500',
+        title: 'SSD云主机DigitalOcean配置手记—上篇',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

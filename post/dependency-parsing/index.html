@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>dependency-parsing: arc-eager transition system - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/dependency-parsing/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="dependency-parsing: arc-eager transition system" />
+<meta property="og:description" content="参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/dependency-parsing/" />
+<meta property="article:published_time" content="2015-10-22T22:02:07-05:00" />
+<meta property="article:modified_time" content="2015-10-22T22:02:07-05:00" />
+<meta itemprop="name" content="dependency-parsing: arc-eager transition system">
+<meta itemprop="description" content="参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中">
+<meta itemprop="datePublished" content="2015-10-22T22:02:07-05:00" />
+<meta itemprop="dateModified" content="2015-10-22T22:02:07-05:00" />
+<meta itemprop="wordCount" content="934">
+
+
+
+<meta itemprop="keywords" content="python,nlp,dependency parsing,arc eager transition system," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="dependency-parsing: arc-eager transition system"/>
+<meta name="twitter:description" content="参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">dependency-parsing: arc-eager transition system</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-10-22 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 934 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#arc-eager-transition-system">arc-eager transition system</a></li>
+    <li><a href="#如何确定每一步中采取哪种操作">如何确定每一步中采取哪种操作？</a></li>
+    <li><a href="#python实现简单分析">Python实现简单分析</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>参考文献：(Denpendency Parsing)[]</p>
+<h2 id="arc-eager-transition-system">arc-eager transition system</h2>
+<ul>
+<li>分为一个stack和buffer（存储所要分析的句子成分）
+状态转移操作分为四个：</li>
+<li>shift 将buffer中的单词转移到stack中去</li>
+<li>前提条件：buffer不为空</li>
+<li>left-arc 将(b,L,s)加入A中，这个表示由b中指向s的弧表示依存关系，标签为L，同时将stack中的元素弹出</li>
+<li>前提条件：stack不为空，stack顶元素没有parent</li>
+<li>right-arc 将（s,L,b）加入A中，这个表示s中指向b的弧表示依存关系，标签为L，同时将b中元素加入stack中</li>
+<li>前提条件：buffer不为空</li>
+<li>reduce 弹出stack中的元素</li>
+<li>stack不为空，栈顶元素有别人指向的它（parent）</li>
+</ul>
+<h2 id="如何确定每一步中采取哪种操作">如何确定每一步中采取哪种操作？</h2>
+<p>目前主要是采用机器学习的方法，具体说是SVM来确定下一步应该采取的操作</p>
+<p>为了更好的对下一步应该采取的操作进行分析，我们需要提供尽可能多的特征以供参考</p>
+<p>特征主要分为两大类：</p>
+<ol>
+<li>位置</li>
+<li>性质</li>
+</ol>
+<p>位置分布特征函数可以由多个更小的位置特征函数结合起来</p>
+<p><em>这里把table3.1放上去</em></p>
+<p>LEDP表示最远子节点，REDP同理
+DEPEL表示一寸标签
+FORM单词形式
+LEMMA词元
+FEATS词类之外的形态特征</p>
+<p>构型单词特征被定义为位置函数和性质函数的组合，毕竟这两个函数是分析中最重要的两个特征，为预测下一步的转换操作提供了重要的信息。</p>
+<p>还有一些其他的构词特征，例如单词距离的远近、单词的左孩子还是有孩子之类的。</p>
+<h2 id="python实现简单分析">Python实现简单分析</h2>
+<h4 id="arc-eager-transition-system-1">arc-eager transition system</h4>
+<p>核心是贪心算法，每次只顾及距离最近的第一个元素进行判断。</p>
+<p>每一个操作（shift、reduce、arc-left、arc-right）都需要首先判断前提条件是否符合
+<em>虽然我没有正确的实现出来，但是原理还是懂的，先记在这里，等到Python弄熟练了再弄</em></p>
+<p>数据结构用Python的list实现，使用list的栈操作函数进行操作</p>
+<h4 id="特征提取好吧我实在不知道怎么翻译了_">特征提取（好吧，我实在不知道怎么翻译了。。%&gt;_&lt;%）</h4>
+<p>这里用一个函数<code>extract_features(tokens, buffer, stack, arcs)</code>实现</p>
+<p>核心思路：</p>
+<p>根据特征提取的那个表，我们可以首先判断是否有指定的特征，若有的话，则加入到result列表中，作为函数的返回值
+<em>这里同样没有很好实现，Python不熟悉并且数据结构不大清楚，有点不知道怎么写，先记着</em></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-10-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/python/">python</a>
+          <a href="https://blog.fangd123.com/tags/nlp/">nlp</a>
+          <a href="https://blog.fangd123.com/tags/dependency-parsing/">dependency parsing</a>
+          <a href="https://blog.fangd123.com/tags/arc-eager-transition-system/">arc eager transition system</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96%E4%BB%A5%E4%B8%8D%E5%8F%98%E5%BA%94%E4%B8%87%E5%8F%98/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">拥抱变化，以不变应万变</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%9A%84/">
+            <span class="next-text nav-default">我是如何看待『时间管理』的</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-10-22 22:02:07 -0500 -0500',
+        title: 'dependency-parsing: arc-eager transition system',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

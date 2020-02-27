@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on fangd123</title>
+    <link>https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on fangd123</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 08 Mar 2016 16:46:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SVM - Understanding the math : the optimal hyperplane</title>
+      <link>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</link>
+      <pubDate>Tue, 08 Mar 2016 16:46:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</guid>
+      <description>这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计</description>
+    </item>
+    
+    <item>
+      <title>语义网络略解</title>
+      <link>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</link>
+      <pubDate>Sat, 28 Nov 2015 11:46:42 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</guid>
+      <description>个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符</description>
+    </item>
+    
+    <item>
+      <title>Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总</title>
+      <link>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</link>
+      <pubDate>Sat, 28 Nov 2015 11:30:10 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</guid>
+      <description>我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h</description>
+    </item>
+    
+    <item>
+      <title>NLP学习笔记</title>
+      <link>https://blog.fangd123.com/post/nlp-notes/</link>
+      <pubDate>Sat, 07 Nov 2015 21:53:49 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/nlp-notes/</guid>
+      <description>文本相似度 构词法相似 词根提取 波特词干（Porter Streamming）提取算法 参考资料：波特词干（Porter Streamming）提取算</description>
+    </item>
+    
+    <item>
+      <title>dependency-parsing: arc-eager transition system</title>
+      <link>https://blog.fangd123.com/post/dependency-parsing/</link>
+      <pubDate>Thu, 22 Oct 2015 22:02:07 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/dependency-parsing/</guid>
+      <description>参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中</description>
+    </item>
+    
+    <item>
+      <title>自然语言处理实验环境搭建（Ubuntu）</title>
+      <link>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</link>
+      <pubDate>Thu, 22 Oct 2015 11:18:03 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</guid>
+      <description>目前正在学习Coursera上的自然语言处理入门课程，本文章为Assignment 1的实验环境搭配，以供参考。 Ubuntu从0配置自然语言处</description>
+    </item>
+    
+    <item>
+      <title>排课系统思路</title>
+      <link>https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Fri, 16 Oct 2015 10:24:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</guid>
+      <description>###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外+7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但</description>
+    </item>
+    
+    <item>
+      <title>Windows 8.1/10 CentOS7 硬盘安装完美解决方案</title>
+      <link>https://blog.fangd123.com/post/window8-1-10-centos7-hardware-install/</link>
+      <pubDate>Wed, 30 Sep 2015 22:26:22 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/window8-1-10-centos7-hardware-install/</guid>
+      <description>参考文章： Win7下硬盘安装CentOS7！ 折腾一天安装Centos7，以及后面恢复Win7引导的曲折历程 分区时的问题 一般情况下，用以上两个</description>
+    </item>
+    
+    <item>
+      <title>浙江新高考排课系统</title>
+      <link>https://blog.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sun, 28 Jun 2015 23:02:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</guid>
+      <description>###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外+7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但</description>
+    </item>
+    
+    <item>
+      <title>VPS安装Nginx、PHP、php-fpm、nodeJS小记</title>
+      <link>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
+      <pubDate>Wed, 24 Jun 2015 19:26:09 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
+      <description>前情提要 端午放假回家陪父母之余，闲来无事，便在网上搜索Web PPT相关技术，除了大名鼎鼎的impress.js之外，还有一个中国的前端大神写</description>
+    </item>
+    
+    <item>
+      <title>php5.6在IIS 7下的配置问题</title>
+      <link>https://blog.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 18 May 2015 13:04:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</guid>
+      <description>总的来说，在IIS下配置php还是比较简单的，CSDN上有非常多关于这方面的文章，不过还是可能遇到php版本不一样导致的配置方法不同这样的情</description>
+    </item>
+    
+    <item>
+      <title>hexo博客Mac平台安装</title>
+      <link>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 01 May 2015 20:46:25 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</guid>
+      <description>缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问</description>
+    </item>
+    
+    <item>
+      <title>Wordpress主题开发学习笔记</title>
+      <link>https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 23 Feb 2015 12:50:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>本文是如下两个教程综合的笔记： Learn WordPress | LearnWebCode WordPress主题制作全过程（一）：主题文件构成 - 露兜博客 （一）文件结构 主页(按照优先顺序排列) 1.home.php</description>
+    </item>
+    
+    <item>
+      <title>SSD云主机DigitalOcean配置手记—下篇</title>
+      <link>https://blog.fangd123.com/post/do-configuration/</link>
+      <pubDate>Fri, 13 Feb 2015 12:47:20 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/do-configuration/</guid>
+      <description>Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经</description>
+    </item>
+    
+    <item>
+      <title>SSD云主机DigitalOcean配置手记—上篇</title>
+      <link>https://blog.fangd123.com/post/digitalocean-account/</link>
+      <pubDate>Thu, 12 Feb 2015 12:14:14 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/digitalocean-account/</guid>
+      <description>Part 1—账户注册&amp;amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有</description>
+    </item>
+    
+    <item>
+      <title>新年新起点</title>
+      <link>https://blog.fangd123.com/post/xinnianxinqidian/</link>
+      <pubDate>Thu, 12 Feb 2015 10:35:49 -0500</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/xinnianxinqidian/</guid>
+      <description>两年前的这个时候，我的第一个个人博客“子达小站”正式上线，从此开启了我的互联网生活新世界，虽然在后来的一段时间因为各种各样的事情耽搁了，但是</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://blog.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</link>
+      <pubDate>Mon, 30 Jun 2014 21:10:00 +0800</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</guid>
+      <description>如果按照层次来分的话，其实还需要把汇编加上去，这样的话从低到高就是汇编、C、C++、Java，这几种语言基本上可以完成任何事情，但是我觉得如</description>
+    </item>
+    
+    <item>
+      <title>自然语言处理笔记（哥伦比亚大学）</title>
+      <link>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</guid>
+      <description>#Model Language 主要是判断这几个词汇能够形成一个句子的概率是多少，通过建立概率统计模型进行判断。 主要是通过马尔科夫模型、条件概率的思想，理想状态下是当前</description>
+    </item>
+    
+  </channel>
+</rss>

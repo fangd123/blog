@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SSD云主机DigitalOcean配置手记—下篇 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/do-configuration/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SSD云主机DigitalOcean配置手记—下篇" />
+<meta property="og:description" content="Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/do-configuration/" />
+<meta property="article:published_time" content="2015-02-13T12:47:20-05:00" />
+<meta property="article:modified_time" content="2015-02-13T12:47:20-05:00" />
+<meta itemprop="name" content="SSD云主机DigitalOcean配置手记—下篇">
+<meta itemprop="description" content="Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经">
+<meta itemprop="datePublished" content="2015-02-13T12:47:20-05:00" />
+<meta itemprop="dateModified" content="2015-02-13T12:47:20-05:00" />
+<meta itemprop="wordCount" content="1090">
+
+
+
+<meta itemprop="keywords" content="apache,centos,digital ocean,mariadb,mysql,php,phpmyadmin,vps," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSD云主机DigitalOcean配置手记—下篇"/>
+<meta name="twitter:description" content="Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SSD云主机DigitalOcean配置手记—下篇</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-02-13 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 1090 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql的问题">MySQL的问题</a></li>
+    <li><a href="#phpmyadmin安装">phpMyAdmin安装</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#固定链接">固定链接</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#使用winscp通过sftp协议传输文件">使用WinSCP通过SFTP协议传输文件</a></li>
+    <li><a href="#遇到问题">遇到问题</a></li>
+    <li><a href="#解决思路">解决思路</a></li>
+    <li><a href="#实施过程">实施过程</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="part-5配置lamp环境">Part 5—配置LAMP环境</h1>
+<blockquote>
+<p>本文作为DO社区教程补充，社区教程链接《<a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-7">How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean</a>》</p>
+</blockquote>
+<p>同样，DO社区教程已经很详细地说明了配置步骤，本着不重复造轮子的原则，这里我仅仅把我按照教程配置时觉得有些棘手的地方说明一下。</p>
+<h2 id="mysql的问题">MySQL的问题</h2>
+<p>在CentOS 7环境下，官方把MySQL替换成了Mariadb了，按照教程配置的时候我还纳闷了，以前用的都是MySQL，怎么都换成了Mariadb了。后来查了一下资料，说什么MySQL要收费了，所以CentOS决定采用开源的Mariadb代替。</p>
+<h2 id="phpmyadmin安装">phpMyAdmin安装</h2>
+<!-- raw HTML omitted -->
+<h1 id="part-6安装配置wordpress">Part 6—安装配置Wordpress</h1>
+<blockquote>
+<!-- raw HTML omitted -->
+</blockquote>
+<h2 id="固定链接">固定链接</h2>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h1 id="part-7配置apache-virtualhosts">Part 7—配置Apache VirtualHosts</h1>
+<blockquote>
+<!-- raw HTML omitted -->
+</blockquote>
+<!-- raw HTML omitted -->
+<h1 id="part-8远程文件传输">Part 8—远程文件传输</h1>
+<p>不得不承认为了配置这个远程文件传输耗费了我最长的时间，网上搜的不论是中文的还是英文的最后都无法解决问题，没有办法，我最后只好曲线救国了。</p>
+<h2 id="使用winscp通过sftp协议传输文件">使用WinSCP通过SFTP协议传输文件</h2>
+<h2 id="遇到问题">遇到问题</h2>
+<p>由于我在之前的云服务器中配置了禁止root远程登录，同时把我创建的普通用户归入wheel用户组，每次执行超出普通用户权限操作的时候都要在命令前面加上sudo，但这样就遇到了一个问题，使用WinSCP时是不能够输入命令的，所以必须提前配置好，我按照WinSCP官方文档中的方法对云服务器配置《<a href="http://winscp.net/eng/docs/faq_su">How do I change user after login (e.g. su root)? :: WinSCP</a>》，云服务器配置完成后，就需要配置本地的WinSCP，我是按照《<a href="http://www.hcocoa.com/2012/08/25/%E5%9C%A8root%E7%94%A8%E6%88%B7%E8%A2%AB%E7%A6%81%E6%AD%A2%E8%BF%9C%E7%A8%8Bssh%E7%99%BB%E5%BD%95%E6%97%B6%EF%BC%8C%E4%BD%BF%E7%94%A8WinSCP%E5%88%87%E6%8D%A2%E5%88%B0root%E7%94%A8%E6%88%B7%E7%9A%84%E6%8A%80%E5%B7%A7">WinSCP下su切换到root的技巧（禁止root远程ssh登录时）</a>》进行的，可是接下来就出问题了，问题描述和这篇文章中描述的一样《<a href="http://bbs.aliyun.com/read/116437.html?spm=0.0.0.0.91I6tp">非root登陆winSCP问题，弄了好久没搞定|云服务器ECS - 开发者论坛</a>》，问题到这里我已经没有办法解决了，最后，我不得不曲线救国。</p>
+<h2 id="解决思路">解决思路</h2>
+<p>因为我在设置Apache服务的时候设置了apache用户名和用户组并且赋予它/var/html/www的755的权限，我想到可以将我创建的普通用户添加到apache用户组中，然后再赋予/var/html/www的775的权限，也就添加了apache用户组的写的权限，这样的话我就能够顺利不使用sudo命令直接修改www文件夹内容。</p>
+<h2 id="实施过程">实施过程</h2>
+<p>使用putty远程登录云主机，将fangwenda（我创建的普通用户）添加到apache用户组中</p>
+<!-- raw HTML omitted -->
+<p>然后再配置www文件夹的权限，添加写的权限给apache用户组</p>
+<!-- raw HTML omitted -->
+<p>ok，搞定。在用winscp远程文件传输这个文件夹就不会有问题了，同时也把对整个系统权限的影响控制在最小程度。</p>
+<p>不过，参照WinSCP方案的配置最后还是没有弄好，如果有哪位大神知道是怎么回事的话希望能够告诉我，我不甚感激~~</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-02-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/apache/">apache</a>
+          <a href="https://blog.fangd123.com/tags/centos/">centos</a>
+          <a href="https://blog.fangd123.com/tags/digital-ocean/">digital ocean</a>
+          <a href="https://blog.fangd123.com/tags/mariadb/">mariadb</a>
+          <a href="https://blog.fangd123.com/tags/mysql/">mysql</a>
+          <a href="https://blog.fangd123.com/tags/php/">php</a>
+          <a href="https://blog.fangd123.com/tags/phpmyadmin/">phpmyadmin</a>
+          <a href="https://blog.fangd123.com/tags/vps/">vps</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">九三：君子终日乾乾，夕惕若，厉无咎</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/digitalocean-account/">
+            <span class="next-text nav-default">SSD云主机DigitalOcean配置手记—上篇</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-02-13 12:47:20 -0500 -0500',
+        title: 'SSD云主机DigitalOcean配置手记—下篇',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

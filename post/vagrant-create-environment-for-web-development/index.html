@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总 - fangd123</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="fangd123" /><meta name="description" content="我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h" /><meta name="keywords" content="fangd123, 博客, 技术, 生活" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.65.3 with theme even" />
+
+
+<link rel="canonical" href="https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总" />
+<meta property="og:description" content="我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/" />
+<meta property="article:published_time" content="2015-11-28T11:30:10-05:00" />
+<meta property="article:modified_time" content="2015-11-28T11:30:10-05:00" />
+<meta itemprop="name" content="Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总">
+<meta itemprop="description" content="我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h">
+<meta itemprop="datePublished" content="2015-11-28T11:30:10-05:00" />
+<meta itemprop="dateModified" content="2015-11-28T11:30:10-05:00" />
+<meta itemprop="wordCount" content="1853">
+
+
+
+<meta itemprop="keywords" content="vagrant,vituralbox," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总"/>
+<meta name="twitter:description" content="我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://blog.fangd123.com/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+        <li class="mobile-menu-item">技术</li>
+      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+        <li class="mobile-menu-item">生活</li>
+      </a><a href="https://blog.fangd123.com/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="https://blog.fangd123.com/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://blog.fangd123.com/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-11-28 </span>
+        <div class="post-category">
+            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 1853 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#安装缘起">安装缘起</a></li>
+        <li><a href="#windows-10下安装vagrant">Windows 10下安装Vagrant</a></li>
+        <li><a href="#osx-1011下安装vagrant">OSX 10.11下安装Vagrant</a></li>
+        <li><a href="#vagrant的box镜像选择">Vagrant的box镜像选择</a></li>
+        <li><a href="#vagrant镜像安装技巧box镜像文件快速下载">Vagrant镜像安装技巧：box镜像文件快速下载</a></li>
+        <li><a href="#额外配置修改默认的public同步文件夹至其他文件夹">额外配置：修改默认的public同步文件夹至其他文件夹</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>我使用的Vagrant配置镜像：
+<a href="https://github.com/scotch-io/scotch-box">https://github.com/scotch-io/scotch-box</a></p>
+<p>对应的box文件链接：
+<a href="https://drive.scotch.io/scotchbox/2.5.0/scotch.box">https://drive.scotch.io/scotchbox/2.5.0/scotch.box</a></p>
+<p>vagrant本地加载box：<code>vagrant box add ... ...</code></p>
+<p>vituralbox 4.3.12版本链接：
+<a href="http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe">http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe</a></p>
+<p>win10 hostonly问题补丁链接：
+<a href="https://www.virtualbox.org/attachment/ticket/14040/VBox-Win10-fix-14040.exe">https://www.virtualbox.org/attachment/ticket/14040/VBox-Win10-fix-14040.exe</a></p>
+<h3 id="安装缘起">安装缘起</h3>
+<p>实验室有一台win10主机，自用MBP，平时本来不怎么做web开发的（我的研究方向和这个关系不大），但上课科目中有一门要用到web开发，为了尽可能不对当前的桌面环境配置产生影响，同时能够正常完成老师布置的作业，于是尝试使用vagrant。</p>
+<p>还有一点，我想在Win、OSX平台下获得一致的开发体验，不需要我在每个平台都重新配置一遍，这个刚好vagrant也可以满足。</p>
+<h3 id="windows-10下安装vagrant">Windows 10下安装Vagrant</h3>
+<p>Vagrant需要本机上装有Virtualbox和Git，不过Vagrant安装包里边自带了这两个软件，我本以为这样直接就可以了，没想到，这里有一个坑。</p>
+<h4 id="virtualbox兼容性问题">Virtualbox兼容性问题</h4>
+<p>Virtualbox for win存在版本兼容性问题，试了很多次虚拟机都启动不起来，各种出错，谷歌之，说版本降级可解决，经过一番比较，Virtualbox 4.3.12版无兼容性问题，下载链接见文首。</p>
+<h4 id="hostonly问题">hostonly问题</h4>
+<p>配置Vagrant的时候，为了让虚拟机能够和宿主机通信，一般采用的是hostonly的网络设置，但是这样配置之后，虚拟机启动失败，错误提示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">VBoxManage.exe: error: Failed to create the host-only adapter
+</code></pre></td></tr></table>
+</div>
+</div><p>谷歌之，在官方论坛上找到了对应问题的<a href="https://www.virtualbox.org/ticket/14040">ticket</a>，这个问题可能依旧是Win10不兼容导致的，不过幸运的是有补丁，打上补丁就搞定了，链接在这里：
+<a href="https://www.virtualbox.org/attachment/ticket/14040/VBox-Win10-fix-14040.exe">https://www.virtualbox.org/attachment/ticket/14040/VBox-Win10-fix-14040.exe</a>
+下次在开启虚拟机之前，首先以管理员模式打开这个补丁就行了。</p>
+<h3 id="osx-1011下安装vagrant">OSX 10.11下安装Vagrant</h3>
+<p>OSX 10.11下安装Vagrant一切正常，并未发生问题。</p>
+<h3 id="vagrant的box镜像选择">Vagrant的box镜像选择</h3>
+<h4 id="要求">要求</h4>
+<p>毕竟web开发，box镜像中，PHP、Node、Mysql等等必备的东西一个都不能少，最好是都配置完好的，能够直接使用</p>
+<h4 id="方案一基于puppet脚本的vagrant配置镜像">方案一✗基于puppet脚本的Vagrant配置镜像</h4>
+<p>使用puppet，就可以让系统自己安装预先设定好的软件，想来也是不错的，在Github上搜寻到了一个star比较多的项目</p>
+<blockquote>
+<p><a href="https://github.com/dirkaholic/vagrant-php-dev-box">https://github.com/dirkaholic/vagrant-php-dev-box</a></p>
+</blockquote>
+<p>按照上边的步骤操作，出现的错误，我谷歌之亦未寻得答案，只好作罢。</p>
+<p><img src="puppet-errors.png" alt="方案一错误"></p>
+<p><em>看到错误提示，应该是puppet脚本出现问题了，返回了错误的值，又想到我的Ubuntu双系统中<code>apt-get update</code>语句执行之后便是漫长地等待，觉得使用puppet安装这些软件可能不是一个适合我的选择</em></p>
+<h4 id="方案二puphpethttpspuphpetcom">方案二✗<a href="https://puphpet.com/">PuPHPet</a></h4>
+<p><img src="puphpet.png" alt="puphpet"></p>
+<p>这其实也是一个基于puppet的一个vagrant配置镜像，原理和方案一差不多，不同之处在于方案二拥有一个GUI界面来配置每一个细节，给了用户更多的定制性，当然，对于刚刚接触web开发的同学或者仅仅需要最基本功能的同学来说，这倒成了一种负担。</p>
+<h4 id="方案三基于已配置好的打包box的vagrant配置镜像">方案三✔︎基于已配置好的打包box的Vagrant配置镜像</h4>
+<p>Github上另外一个项目引起了我的注意：</p>
+<blockquote>
+<p><a href="https://github.com/scotch-io/scotch-box">https://github.com/scotch-io/scotch-box</a></p>
+</blockquote>
+<p>根据<a href="https://box.scotch.io">首页</a>上的介绍，不需要联网配置，不使用puppet这类运维工具配置，即装即用，几乎完全满足了我的需求。</p>
+<p>按照步骤配置下来，终于在折腾了一下午之后成功启动虚拟机</p>
+<p><img src="scotch-box.png" alt="scotch"></p>
+<p>剩下的按照<a href="https://box.scotch.io">首页</a>上的介绍直接使用就好了，这里不再多述。</p>
+<h3 id="vagrant镜像安装技巧box镜像文件快速下载">Vagrant镜像安装技巧：box镜像文件快速下载</h3>
+<p>box镜像文件动辄五六百MB，如果用Vagrant默认的下载方式，真的不知道下到啥时候，这里介绍一个『快一点』的下载方式：</p>
+<ol>
+<li>
+<p>首先按照正常步骤，输入<code>vagrant up</code>之后会有一句指示当前下载box文件的url，例如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">==</span>&gt; default: Adding box <span class="s1">&#39;hashicorp/precise32&#39;</span> <span class="o">(</span>v1.0.0<span class="o">)</span> <span class="k">for</span> provider: virtualbox
+
+default: Downloading: https://atlas.hashicorp.com/hashicorp/boxes/precise32/versions/1.0.0/providers/virtualbox.box
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>此时我们<code>ctrl+c</code>强制停止当前进程，将url拷贝到迅雷或者别的下载工具中进行下载，下载完成后进入下载目录，打开命令行，输入（<em>其中<code>hashicorp/precise32</code>为配置文件为box镜像起的名字</em>）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">vagrant box add hashicorp/precise32
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Vagrant会自动对box镜像进行处理，此时我们再回到之前的Vagrant配置目录中，<code>vagrant up</code>启动，过不了一会儿就安装好了。</p>
+</li>
+</ol>
+<h3 id="额外配置修改默认的public同步文件夹至其他文件夹">额外配置：修改默认的public同步文件夹至其他文件夹</h3>
+<p>打开Vagrantfile，找到</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">config.vm.synced_folder &#34;.&#34;, &#34;/var/www&#34;, :mount_options =&gt; [&#34;dmode=777&#34;, &#34;fmode=666&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><p>修改<code>&quot;.&quot;</code>为自己的目录，然后<code>vagrant up</code>开启虚拟机，进入<code>ect/apache2</code>目录，配置vituralhost的directory，从<code>public</code>改为自定目录即可</p>
+<h3 id="总结">总结</h3>
+<ol>
+<li>puppet一件利器，但是还是需要看使用场景，至少在我这个场景下我觉得直接全部打包更方便快捷。</li>
+<li>在国内的网络环境，能够离线安装就离线安装，在线的方式费时费力还不一定成功</li>
+<li>下次有时间再试试Docker，看看有没有这么多坑。</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">fangd123</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-11-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://blog.fangd123.com/tags/vagrant/">vagrant</a>
+          <a href="https://blog.fangd123.com/tags/vituralbox/">vituralbox</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">语义网络略解</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="https://blog.fangd123.com/post/nlp-notes/">
+            <span class="next-text nav-default">NLP学习笔记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2015-11-28 11:30:10 -0500 -0500',
+        title: 'Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总',
+        clientID: 'e7701fe6c1c3f1819cca',
+        clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
+        repo: 'fangd123.github.io',
+        owner: 'fangd123',
+        admin: ['fangd123'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:fangd123@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/fangd123" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/p/1005051761690660/" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">fangd123</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
