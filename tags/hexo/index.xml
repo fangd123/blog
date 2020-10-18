@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hexo on fangd123</title>
-    <link>https://blog.fangd123.com/tags/hexo/</link>
+    <link>https://old.fangd123.com/tags/hexo/</link>
     <description>Recent content in hexo on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 01 May 2015 20:46:25 -0500</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 01 May 2015 20:46:25 -0500</lastBuildDate><atom:link href="https://old.fangd123.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hexo博客Mac平台安装</title>
-      <link>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</link>
+      <link>https://old.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</link>
       <pubDate>Fri, 01 May 2015 20:46:25 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://old.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</guid>
       <description>缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问</description>
     </item>
     

@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>svm on fangd123</title>
-    <link>https://blog.fangd123.com/tags/svm/</link>
+    <link>https://old.fangd123.com/tags/svm/</link>
     <description>Recent content in svm on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Mar 2016 16:46:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/tags/svm/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 08 Mar 2016 16:46:00 +0800</lastBuildDate><atom:link href="https://old.fangd123.com/tags/svm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SVM - Understanding the math : the optimal hyperplane</title>
-      <link>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</link>
+      <link>https://old.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</link>
       <pubDate>Tue, 08 Mar 2016 16:46:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</guid>
+      <guid>https://old.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</guid>
       <description>这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计</description>
     </item>
     

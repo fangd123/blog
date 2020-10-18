@@ -23,36 +23,37 @@
 
 
 
-<meta name="generator" content="Hugo 0.65.3 with theme even" />
+<meta name="generator" content="Hugo 0.76.5 with theme even" />
 
 
-<link rel="canonical" href="https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://blog.fangd123.com/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://blog.fangd123.com/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://blog.fangd123.com/favicon-16x16.png">
-<link rel="manifest" href="https://blog.fangd123.com/manifest.json">
-<link rel="mask-icon" href="https://blog.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://old.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://old.fangd123.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://old.fangd123.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://old.fangd123.com/favicon-16x16.png">
+<link rel="manifest" href="https://old.fangd123.com/manifest.json">
+<link rel="mask-icon" href="https://old.fangd123.com/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="https://blog.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="https://old.fangd123.com/dist/even.c2a46f00.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Wordpress主题开发学习笔记" />
 <meta property="og:description" content="本文是如下两个教程综合的笔记： Learn WordPress | LearnWebCode WordPress主题制作全过程（一）：主题文件构成 - 露兜博客 （一）文件结构 主页(按照优先顺序排列) 1.home.php" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="og:url" content="https://old.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
 <meta property="article:published_time" content="2015-02-23T12:50:00+08:00" />
 <meta property="article:modified_time" content="2015-02-23T12:50:00+08:00" />
 <meta itemprop="name" content="Wordpress主题开发学习笔记">
 <meta itemprop="description" content="本文是如下两个教程综合的笔记： Learn WordPress | LearnWebCode WordPress主题制作全过程（一）：主题文件构成 - 露兜博客 （一）文件结构 主页(按照优先顺序排列) 1.home.php">
-<meta itemprop="datePublished" content="2015-02-23T12:50:00&#43;08:00" />
-<meta itemprop="dateModified" content="2015-02-23T12:50:00&#43;08:00" />
-<meta itemprop="wordCount" content="2141">
+<meta itemprop="datePublished" content="2015-02-23T12:50:00+08:00" />
+<meta itemprop="dateModified" content="2015-02-23T12:50:00+08:00" />
+<meta itemprop="wordCount" content="2149">
 
 
 
-<meta itemprop="keywords" content="wordpress," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="wordpress," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Wordpress主题开发学习笔记"/>
 <meta name="twitter:description" content="本文是如下两个教程综合的笔记： Learn WordPress | LearnWebCode WordPress主题制作全过程（一）：主题文件构成 - 露兜博客 （一）文件结构 主页(按照优先顺序排列) 1.home.php"/>
 
@@ -69,7 +70,7 @@
 <body>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+    <a href="https://old.fangd123.com/" class="logo">fangd123</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -79,17 +80,17 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="https://blog.fangd123.com/">
+    <a href="https://old.fangd123.com/">
         <li class="mobile-menu-item">主页</li>
-      </a><a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
+      </a><a href="https://old.fangd123.com/categories/%E6%8A%80%E6%9C%AF">
         <li class="mobile-menu-item">技术</li>
-      </a><a href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
+      </a><a href="https://old.fangd123.com/categories/%E7%94%9F%E6%B4%BB">
         <li class="mobile-menu-item">生活</li>
-      </a><a href="https://blog.fangd123.com/post/">
+      </a><a href="https://old.fangd123.com/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="https://blog.fangd123.com/tags/">
+      </a><a href="https://old.fangd123.com/tags/">
         <li class="mobile-menu-item">标签</li>
-      </a><a href="https://blog.fangd123.com/categories/">
+      </a><a href="https://old.fangd123.com/categories/">
         <li class="mobile-menu-item">分类</li>
       </a>
   </ul>
@@ -97,23 +98,23 @@
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
-  <a href="https://blog.fangd123.com/" class="logo">fangd123</a>
+  <a href="https://old.fangd123.com/" class="logo">fangd123</a>
 </div>
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/">主页</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/">主页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/categories/%E6%8A%80%E6%9C%AF">技术</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/categories/%E7%94%9F%E6%B4%BB">生活</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/post/">归档</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/tags/">标签</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://blog.fangd123.com/categories/">分类</a>
+        <a class="menu-item-link" href="https://old.fangd123.com/categories/">分类</a>
       </li>
   </ul>
 </nav>
@@ -130,11 +131,11 @@
       <div class="post-meta">
         <span class="post-time"> 2015-02-23 </span>
         <div class="post-category">
-            <a href="https://blog.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            <a href="https://old.fangd123.com/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
             </div>
-          <span class="more-meta"> 约 2141 字 </span>
+          <span class="more-meta"> 约 2149 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="https://old.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
 
@@ -266,8 +267,8 @@ Tags: 标签，多个用半角逗号隔开
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">php</span> <span class="na">get_header</span><span class="err">();</span> <span class="err">?</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><h4 id="根据当前页面自动更改title">根据当前页面自动更改Title</h4>
 <p>在<code>header.php</code>文件的<code>&lt;title&gt;</code>标签中插入PHP代码，判断当前页面类型，这里要使用到Wordpress内置的函数，示例代码如下</p>
@@ -288,7 +289,7 @@ Tags: 标签，多个用半角逗号隔开
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">is_home</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">is_home</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="k">echo</span> <span class="s2">&#34; - &#34;</span><span class="p">;</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">elseif</span> <span class="p">(</span> <span class="nx">is_category</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
         <span class="nx">single_cat_title</span><span class="p">();</span> <span class="k">echo</span> <span class="s2">&#34; - &#34;</span><span class="p">;</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
@@ -300,8 +301,8 @@ Tags: 标签，多个用半角逗号隔开
         <span class="k">echo</span> <span class="s1">&#39;页面未找到!&#39;</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
         <span class="nx">wp_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="k">true</span><span class="p">);</span>
-    <span class="p">}</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+    <span class="p">}</span> <span class="cp">?&gt;</span><span class="err">&lt;/title&gt;
+</span></code></pre></td></tr></table>
 </div>
 </div><h3 id="更改样式表stylecss的路径">更改样式表style.css的路径</h3>
 <p>Wordpress的主题<code>style.css</code>文件要想能够正确的被引用，采用传统的方式是不行的，因为Wordpress对于主题文件代码需要层层解析，所以我们需要采用Wordpress提供的函数进行引用。</p>
@@ -314,7 +315,7 @@ Tags: 标签，多个用半角逗号隔开
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;stylesheet_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/css&#34;</span> <span class="na">media</span><span class="o">=</span><span class="s">&#34;screen&#34;</span> <span class="p">/&gt;</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&#34;stylesheet&#34;</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;&lt;?php bloginfo(&#39;stylesheet_url&#39;); ?&gt;&#34;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text/css&#34;</span> <span class="nx">media</span><span class="o">=</span><span class="s2">&#34;screen&#34;</span> <span class="o">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -329,11 +330,11 @@ Tags: 标签，多个用半角逗号隔开
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php">function themename_resources() {
-  wp_enqueue_style(&#39;style&#39;,get_stylesheet_uri());
-}
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">function</span> <span class="nf">themename_resources</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">wp_enqueue_style</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span><span class="nx">get_stylesheet_uri</span><span class="p">());</span>
+<span class="p">}</span>
 
-add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
+<span class="nx">add_action</span><span class="p">(</span><span class="s1">&#39;wp_enqueue_scripts&#39;</span><span class="p">,</span><span class="s1">&#39;themename_resources&#39;</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果CSS文件不是<code>style.css</code>，我们可以用</p>
@@ -342,8 +343,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;template_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;template_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>指定文件位置即可。</p>
 <h3 id="添加pingback">添加pingback</h3>
@@ -352,7 +353,7 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;pingback&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;pingback_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="p">/&gt;</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&#34;pingback&#34;</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;&lt;?php bloginfo(&#39;pingback_url&#39;); ?&gt;&#34;</span> <span class="o">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="更改博客名称和描述">更改博客名称和描述</h3>
@@ -363,10 +364,10 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span> //输出你的博客首页网址
-<span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span>  //输出你的博客名称
-<span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span>  //输出博客描述
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="err"> //输出你的博客首页网址
+</span><span class="err">&lt;?php bloginfo(&#39;name&#39;); ?&gt;  //输出你的博客名称
+</span><span class="err">&lt;?php bloginfo(&#39;description&#39;); ?&gt;  //输出博客描述
+</span></code></pre></td></tr></table>
 </div>
 </div><h3 id="添加订阅feed链接">添加订阅feed链接</h3>
 <div class="highlight"><div class="chroma">
@@ -375,8 +376,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/rss+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;RSS 2.0 - 所有文章&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_bloginfo</span><span class="p">(</span><span class="s1">&#39;rss2_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;alternate&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;application/rss+xml&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;RSS 2.0 - 所有评论&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;comments_rss2_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="p">/&gt;</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&#34;alternate&#34;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;application/rss+xml&#34;</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&#34;RSS 2.0 - 所有文章&#34;</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;&lt;?php echo get_bloginfo(&#39;rss2_url&#39;); ?&gt;&#34;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&#34;alternate&#34;</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;application/rss+xml&#34;</span> <span class="nx">title</span><span class="o">=</span><span class="s2">&#34;RSS 2.0 - 所有评论&#34;</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;&lt;?php bloginfo(&#39;comments_rss2_url&#39;); ?&gt;&#34;</span> <span class="o">/&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="刷新缓存">刷新缓存</h3>
@@ -385,8 +386,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">flush</span><span class="p">();</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">flush</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="footerphp">footer.php</h2>
@@ -396,8 +397,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><p>Wordpress函数</p>
 <div class="highlight"><div class="chroma">
@@ -405,8 +406,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><h1 id="三indexphp和singlephp">（三）index.php和single.php</h1>
 <p>本文是如下两个教程综合的笔记：
@@ -419,8 +420,8 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">get_sidebar</span><span class="p">();</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">get_sidebar</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="indexphp">index.php</h2>
@@ -436,14 +437,14 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;title&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="s">&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;bookmark&#34;</span><span class="p">&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span> //标题和链接
-<span class="cp">&lt;?php</span> <span class="nx">the_tags</span><span class="p">(</span><span class="s1">&#39;标签：&#39;</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span> //标签
-<span class="cp">&lt;?php</span> <span class="nx">the_time</span><span class="p">(</span><span class="s1">&#39;Y年n月j日&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span> //日期
-<span class="cp">&lt;?php</span> <span class="nx">comments_popup_link</span><span class="p">(</span><span class="s1">&#39;0 条评论&#39;</span><span class="p">,</span> <span class="s1">&#39;1 条评论&#39;</span><span class="p">,</span> <span class="s1">&#39;% 条评论&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;评论已关闭&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span> //评论数
-
-<span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">();</span> <span class="cp">?&gt;</span> //输出摘要
-<span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="cp">?&gt;</span>  //输出全文
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;</span><span class="nx">h3</span> <span class="nx">class</span><span class="o">=</span><span class="s2">&#34;title&#34;</span><span class="o">&gt;&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;&lt;?php the_permalink(); ?&gt;&#34;</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">&#34;bookmark&#34;</span><span class="o">&gt;&lt;?</span><span class="nx">php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">&lt;/a&gt;&lt;/h3&gt; //标题和链接
+</span><span class="err">&lt;?php the_tags(&#39;标签：&#39;, &#39;, &#39;, &#39;&#39;); ?&gt; //标签
+</span><span class="err">&lt;?php the_time(&#39;Y年n月j日&#39;) ?&gt; //日期
+</span><span class="err">&lt;?php comments_popup_link(&#39;0 条评论&#39;, &#39;1 条评论&#39;, &#39;% 条评论&#39;, &#39;&#39;, &#39;评论已关闭&#39;); ?&gt; //评论数
+</span><span class="err">
+</span><span class="err">&lt;?php the_excerpt(); ?&gt; //输出摘要
+</span><span class="err">&lt;?php the_content(); ?&gt;  //输出全文
+</span></code></pre></td></tr></table>
 </div>
 </div><h3 id="文章骨架">文章骨架</h3>
 <div class="highlight"><div class="chroma">
@@ -456,13 +457,13 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span>
-    文章html骨架
-<span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
-<span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span>
-    输出找不到文章提示
-<span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="err">
+</span><span class="err">    文章html骨架
+</span><span class="err">&lt;?php endwhile; ?&gt;
+</span><span class="err">&lt;?php else : ?&gt;
+</span><span class="err">    输出找不到文章提示
+</span><span class="err">&lt;?php endif; ?&gt;
+</span></code></pre></td></tr></table>
 </div>
 </div><hr>
 <h2 id="singlephp">single.php</h2>
@@ -477,7 +478,7 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span> <span class="nx">comments_template</span><span class="p">();</span> <span class="o">?</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">comments_template</span><span class="p">();</span> <span class="o">?</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>为了安全起见，防止恶意用户直接打开评论文件，在文件头部添加以下代码</p>
@@ -490,12 +491,12 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;comments.php&#39;</span> <span class="o">==</span>
         <span class="nx">basename</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">]))</span>
         <span class="k">die</span> <span class="p">(</span><span class="s1">&#39;Please do not load this page directly. Thanks!&#39;</span><span class="p">);</span>
-<span class="cp">?&gt;</span>
-</code></pre></td></tr></table>
+<span class="cp">?&gt;</span><span class="err">
+</span></code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -517,15 +518,15 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="https://blog.fangd123.com/tags/wordpress/">wordpress</a>
+          <a href="https://old.fangd123.com/tags/wordpress/">wordpress</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="https://blog.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/">
+        <a class="prev" href="https://old.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/">
             <i class="iconfont icon-left"></i>
             <span class="prev-text nav-default">过年小结</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="https://blog.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/">
+        <a class="next" href="https://old.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/">
             <span class="next-text nav-default">九三：君子终日乾乾，夕惕若，厉无咎</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
@@ -539,7 +540,7 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2015-02-23 12:50:00 \x2b0800 CST',
+        id: '2015-02-23 12:50:00 \u002b0800 CST',
         title: 'Wordpress主题开发学习笔记',
         clientID: 'e7701fe6c1c3f1819cca',
         clientSecret: '0279597bf6b736da28a66ac649db4851303b9d95',
@@ -567,7 +568,7 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
       <a href="https://www.zhihu.com/people/fang-wen-da" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
-  <a href="https://blog.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  <a href="https://old.fangd123.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
@@ -581,9 +582,9 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
   </span>
 
   <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="https://old.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
       <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://blog.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="https://old.fangd123.com/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
   </div>
 
   <span class="copyright-year">
@@ -606,7 +607,7 @@ add_action(&#39;wp_enqueue_scripts&#39;,&#39;themename_resources&#39;);
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://blog.fangd123.com/dist/even.26188efa.min.js"></script>
+<script type="text/javascript" src="https://old.fangd123.com/dist/even.26188efa.min.js"></script>
 
 
 

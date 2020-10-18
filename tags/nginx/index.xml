@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nginx on fangd123</title>
-    <link>https://blog.fangd123.com/tags/nginx/</link>
+    <link>https://old.fangd123.com/tags/nginx/</link>
     <description>Recent content in nginx on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jun 2015 19:26:09 -0500</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 24 Jun 2015 19:26:09 -0500</lastBuildDate><atom:link href="https://old.fangd123.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPS安装Nginx、PHP、php-fpm、nodeJS小记</title>
-      <link>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
+      <link>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
       <pubDate>Wed, 24 Jun 2015 19:26:09 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
+      <guid>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
       <description>前情提要 端午放假回家陪父母之余，闲来无事，便在网上搜索Web PPT相关技术，除了大名鼎鼎的impress.js之外，还有一个中国的前端大神写</description>
     </item>
     

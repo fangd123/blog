@@ -2,30 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>php on fangd123</title>
-    <link>https://blog.fangd123.com/tags/php/</link>
+    <link>https://old.fangd123.com/tags/php/</link>
     <description>Recent content in php on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jun 2015 19:26:09 -0500</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 24 Jun 2015 19:26:09 -0500</lastBuildDate><atom:link href="https://old.fangd123.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPS安装Nginx、PHP、php-fpm、nodeJS小记</title>
-      <link>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
+      <link>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
       <pubDate>Wed, 24 Jun 2015 19:26:09 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
+      <guid>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
       <description>前情提要 端午放假回家陪父母之余，闲来无事，便在网上搜索Web PPT相关技术，除了大名鼎鼎的impress.js之外，还有一个中国的前端大神写</description>
     </item>
     
     <item>
       <title>SSD云主机DigitalOcean配置手记—下篇</title>
-      <link>https://blog.fangd123.com/post/do-configuration/</link>
+      <link>https://old.fangd123.com/post/do-configuration/</link>
       <pubDate>Fri, 13 Feb 2015 12:47:20 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/do-configuration/</guid>
+      <guid>https://old.fangd123.com/post/do-configuration/</guid>
       <description>Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经</description>
     </item>
     

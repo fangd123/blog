@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://blog.fangd123.com/sitemap.xml
+Sitemap: https://old.fangd123.com/sitemap.xml

@@ -2,21 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on fangd123</title>
-    <link>https://blog.fangd123.com/tags/python/</link>
+    <link>https://old.fangd123.com/tags/python/</link>
     <description>Recent content in python on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Oct 2015 22:02:07 -0500</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 22 Oct 2015 22:02:07 -0500</lastBuildDate><atom:link href="https://old.fangd123.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>dependency-parsing: arc-eager transition system</title>
-      <link>https://blog.fangd123.com/post/dependency-parsing/</link>
+      <link>https://old.fangd123.com/post/dependency-parsing/</link>
       <pubDate>Thu, 22 Oct 2015 22:02:07 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/dependency-parsing/</guid>
+      <guid>https://old.fangd123.com/post/dependency-parsing/</guid>
       <description>参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中</description>
     </item>
     

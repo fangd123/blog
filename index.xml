@@ -2,471 +2,467 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fangd123</title>
-    <link>https://blog.fangd123.com/</link>
+    <link>https://old.fangd123.com/</link>
     <description>Recent content on fangd123</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Mar 2016 16:46:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://blog.fangd123.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 08 Mar 2016 16:46:00 +0800</lastBuildDate><atom:link href="https://old.fangd123.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SVM - Understanding the math : the optimal hyperplane</title>
-      <link>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</link>
+      <link>https://old.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</link>
       <pubDate>Tue, 08 Mar 2016 16:46:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</guid>
+      <guid>https://old.fangd123.com/post/svm-understanding-the-math-the-optimal-hyperplane/</guid>
       <description>这是整个系列的第三部分。 在你阅读这篇文章前，你也许想看看前边的文章： SVM - 理解背后的数学原理 第一部分：支持向量机的目标是什么？ 第二部分：如何计</description>
     </item>
     
     <item>
       <title>一念</title>
-      <link>https://blog.fangd123.com/post/one-moment/</link>
+      <link>https://old.fangd123.com/post/one-moment/</link>
       <pubDate>Sun, 03 Jan 2016 19:50:55 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/one-moment/</guid>
+      <guid>https://old.fangd123.com/post/one-moment/</guid>
       <description>——2015年度总结 佛家言，九十刹那为一念，一念中，一刹那经九百生灭。 倘若要把这一年的经历用一个词概括的话，我觉得『一念』再合适不过了。一念</description>
     </item>
     
     <item>
       <title>语义网络略解</title>
-      <link>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</link>
+      <link>https://old.fangd123.com/post/the-semantic-web-in-breadth-translation/</link>
       <pubDate>Sat, 28 Nov 2015 11:46:42 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/the-semantic-web-in-breadth-translation/</guid>
+      <guid>https://old.fangd123.com/post/the-semantic-web-in-breadth-translation/</guid>
       <description>个人翻译，若有不当之处，还请多多指教 by Aaron Swartz 原文链接：The Semantic Web In Breadth **注：**这篇文章讲述语义网络不同的部分以及他们之间如何协调适应。 标识符</description>
     </item>
     
     <item>
       <title>Vagrant打造跨平台零配置Web开发环境问题和解决方案汇总</title>
-      <link>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</link>
+      <link>https://old.fangd123.com/post/vagrant-create-environment-for-web-development/</link>
       <pubDate>Sat, 28 Nov 2015 11:30:10 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/</guid>
+      <guid>https://old.fangd123.com/post/vagrant-create-environment-for-web-development/</guid>
       <description>我使用的Vagrant配置镜像： https://github.com/scotch-io/scotch-box 对应的box文件链接： https://drive.scotch.io/scotchbox/2.5.0/scotch.box vagrant本地加载box：vagrant box add ... ... vituralbox 4.3.12版本链接： http://download.virtualbox.org/virtualbox/4.3.12/VirtualBox-4.3.12-93733-Win.exe win10 h</description>
     </item>
     
     <item>
       <title>NLP学习笔记</title>
-      <link>https://blog.fangd123.com/post/nlp-notes/</link>
+      <link>https://old.fangd123.com/post/nlp-notes/</link>
       <pubDate>Sat, 07 Nov 2015 21:53:49 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/nlp-notes/</guid>
+      <guid>https://old.fangd123.com/post/nlp-notes/</guid>
       <description>文本相似度 构词法相似 词根提取 波特词干（Porter Streamming）提取算法 参考资料：波特词干（Porter Streamming）提取算</description>
     </item>
     
     <item>
       <title>拥抱变化，以不变应万变</title>
-      <link>https://blog.fangd123.com/post/%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96%E4%BB%A5%E4%B8%8D%E5%8F%98%E5%BA%94%E4%B8%87%E5%8F%98/</link>
+      <link>https://old.fangd123.com/post/%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96%E4%BB%A5%E4%B8%8D%E5%8F%98%E5%BA%94%E4%B8%87%E5%8F%98/</link>
       <pubDate>Wed, 28 Oct 2015 23:01:53 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96%E4%BB%A5%E4%B8%8D%E5%8F%98%E5%BA%94%E4%B8%87%E5%8F%98/</guid>
+      <guid>https://old.fangd123.com/post/%E6%8B%A5%E6%8A%B1%E5%8F%98%E5%8C%96%E4%BB%A5%E4%B8%8D%E5%8F%98%E5%BA%94%E4%B8%87%E5%8F%98/</guid>
       <description>最近，BAT三家招人政策的变化以及各大互联网行业一二名企业合并的消息引爆，各大IT媒体都给出了“互联网寒冬来临”的标题，对于刚刚放弃工作选择</description>
     </item>
     
     <item>
       <title>dependency-parsing: arc-eager transition system</title>
-      <link>https://blog.fangd123.com/post/dependency-parsing/</link>
+      <link>https://old.fangd123.com/post/dependency-parsing/</link>
       <pubDate>Thu, 22 Oct 2015 22:02:07 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/dependency-parsing/</guid>
+      <guid>https://old.fangd123.com/post/dependency-parsing/</guid>
       <description>参考文献：(Denpendency Parsing)[] arc-eager transition system 分为一个stack和buffer（存储所要分析的句子成分） 状态转移操作分为四个： shift 将buffer中</description>
     </item>
     
     <item>
       <title>我是如何看待『时间管理』的</title>
-      <link>https://blog.fangd123.com/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%9A%84/</link>
+      <link>https://old.fangd123.com/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%9A%84/</link>
       <pubDate>Thu, 22 Oct 2015 11:30:28 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%9A%84/</guid>
+      <guid>https://old.fangd123.com/post/%E6%88%91%E6%98%AF%E5%A6%82%E4%BD%95%E7%9C%8B%E5%BE%85%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E7%9A%84/</guid>
       <description>最近因为要准备关于时间管理的话题分享，于是又把当年我看过的哥这方面相关的书又看了一遍，有《把时间当做朋友》、《无压工作的艺术》，还有我以前搜</description>
     </item>
     
     <item>
       <title>自然语言处理实验环境搭建（Ubuntu）</title>
-      <link>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</link>
+      <link>https://old.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</link>
       <pubDate>Thu, 22 Oct 2015 11:18:03 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</guid>
+      <guid>https://old.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BAubuntu/</guid>
       <description>目前正在学习Coursera上的自然语言处理入门课程，本文章为Assignment 1的实验环境搭配，以供参考。 Ubuntu从0配置自然语言处</description>
     </item>
     
     <item>
       <title>排课系统思路</title>
-      <link>https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</link>
+      <link>https://old.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</link>
       <pubDate>Fri, 16 Oct 2015 10:24:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</guid>
+      <guid>https://old.fangd123.com/post/%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%B7%AF/</guid>
       <description>###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外+7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但</description>
     </item>
     
     <item>
       <title>Windows 8.1/10 CentOS7 硬盘安装完美解决方案</title>
-      <link>https://blog.fangd123.com/post/window8-1-10-centos7-hardware-install/</link>
+      <link>https://old.fangd123.com/post/window8-1-10-centos7-hardware-install/</link>
       <pubDate>Wed, 30 Sep 2015 22:26:22 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/window8-1-10-centos7-hardware-install/</guid>
+      <guid>https://old.fangd123.com/post/window8-1-10-centos7-hardware-install/</guid>
       <description>参考文章： Win7下硬盘安装CentOS7！ 折腾一天安装Centos7，以及后面恢复Win7引导的曲折历程 分区时的问题 一般情况下，用以上两个</description>
     </item>
     
     <item>
       <title>研究生阶段学习计划</title>
-      <link>https://blog.fangd123.com/post/master-degree-study-plan/</link>
+      <link>https://old.fangd123.com/post/master-degree-study-plan/</link>
       <pubDate>Wed, 30 Sep 2015 22:05:39 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/master-degree-study-plan/</guid>
+      <guid>https://old.fangd123.com/post/master-degree-study-plan/</guid>
       <description>研究领域 自然语言处理 原则 以点带面，项目驱动 打好基础，不以目的为结果 Just for fun! Enjoy myself! 及时总结，积极分享 具体计划 研一 按照要求完成功课 巩固概率统计基础知</description>
     </item>
     
     <item>
       <title>Python Scrapy框架Ubuntu 15.04下安装小记</title>
-      <link>https://blog.fangd123.com/post/python-scarpy-ubuntu-install-log/</link>
+      <link>https://old.fangd123.com/post/python-scarpy-ubuntu-install-log/</link>
       <pubDate>Mon, 28 Sep 2015 11:51:02 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/python-scarpy-ubuntu-install-log/</guid>
+      <guid>https://old.fangd123.com/post/python-scarpy-ubuntu-install-log/</guid>
       <description>我这人有个坏习惯，总是喜欢装最新的东西，殊不知最新的不一定是最稳定的，有时候会出现一些Error和Bug，另外，针对与桌面系统的Ubuntu</description>
     </item>
     
     <item>
       <title>朝夕书吧十月嘉宾主题分享提纲</title>
-      <link>https://blog.fangd123.com/post/%E6%9C%9D%E5%A4%95%E4%B9%A6%E5%90%A7%E5%8D%81%E6%9C%88%E5%98%89%E5%AE%BE%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E6%8F%90%E7%BA%B2/</link>
+      <link>https://old.fangd123.com/post/%E6%9C%9D%E5%A4%95%E4%B9%A6%E5%90%A7%E5%8D%81%E6%9C%88%E5%98%89%E5%AE%BE%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E6%8F%90%E7%BA%B2/</link>
       <pubDate>Sun, 13 Sep 2015 23:29:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%9C%9D%E5%A4%95%E4%B9%A6%E5%90%A7%E5%8D%81%E6%9C%88%E5%98%89%E5%AE%BE%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E6%8F%90%E7%BA%B2/</guid>
+      <guid>https://old.fangd123.com/post/%E6%9C%9D%E5%A4%95%E4%B9%A6%E5%90%A7%E5%8D%81%E6%9C%88%E5%98%89%E5%AE%BE%E4%B8%BB%E9%A2%98%E5%88%86%E4%BA%AB%E6%8F%90%E7%BA%B2/</guid>
       <description>##主题：时间管理和个人知识管理体系构建 ###话题1：【导入】what我们做事的效率越来越低，零碎的时间越来越多 ####互动：聊聊自己最忙碌</description>
     </item>
     
     <item>
       <title>致老师的一封信</title>
-      <link>https://blog.fangd123.com/post/%E8%87%B4%E8%80%81%E5%B8%88%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</link>
+      <link>https://old.fangd123.com/post/%E8%87%B4%E8%80%81%E5%B8%88%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</link>
       <pubDate>Thu, 06 Aug 2015 18:15:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%87%B4%E8%80%81%E5%B8%88%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</guid>
+      <guid>https://old.fangd123.com/post/%E8%87%B4%E8%80%81%E5%B8%88%E7%9A%84%E4%B8%80%E5%B0%81%E4%BF%A1/</guid>
       <description>时间过得真快，转眼四个月过去了，看了听了学习了许多，心中亦有万千疑惑无从解答，本想找机会与老师面对面交流，奈何老师工作繁忙，遂将吾之所想思之</description>
     </item>
     
     <item>
       <title>近一个月的感触</title>
-      <link>https://blog.fangd123.com/post/%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E7%9A%84%E6%84%9F%E8%A7%A6/</link>
+      <link>https://old.fangd123.com/post/%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E7%9A%84%E6%84%9F%E8%A7%A6/</link>
       <pubDate>Sat, 01 Aug 2015 10:26:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E7%9A%84%E6%84%9F%E8%A7%A6/</guid>
+      <guid>https://old.fangd123.com/post/%E8%BF%91%E4%B8%80%E4%B8%AA%E6%9C%88%E7%9A%84%E6%84%9F%E8%A7%A6/</guid>
       <description>###项目 项目的事情总算告一段落了，接下来只需要把界面做出来就行，从六月初到现在差不多两个月的时间里和导师一起设计开发这个项目。 ####C#</description>
     </item>
     
     <item>
       <title>信息、共享以及我们的未来 </title>
-      <link>https://blog.fangd123.com/post/infomation-share-and-future/</link>
+      <link>https://old.fangd123.com/post/infomation-share-and-future/</link>
       <pubDate>Mon, 29 Jun 2015 09:38:34 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/infomation-share-and-future/</guid>
+      <guid>https://old.fangd123.com/post/infomation-share-and-future/</guid>
       <description>题外话 前不久看了一篇文章，讲作者的一个好朋友的故事。本来想把文章链接放出来的，结果发现自己忘记了当初是从哪里看到了的，连标题都忘了，我这记性</description>
     </item>
     
     <item>
       <title>杭州一周小记</title>
-      <link>https://blog.fangd123.com/post/%E6%9D%AD%E5%B7%9E%E4%B8%80%E5%91%A8%E5%B0%8F%E8%AE%B0/</link>
+      <link>https://old.fangd123.com/post/%E6%9D%AD%E5%B7%9E%E4%B8%80%E5%91%A8%E5%B0%8F%E8%AE%B0/</link>
       <pubDate>Sun, 28 Jun 2015 23:10:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%9D%AD%E5%B7%9E%E4%B8%80%E5%91%A8%E5%B0%8F%E8%AE%B0/</guid>
+      <guid>https://old.fangd123.com/post/%E6%9D%AD%E5%B7%9E%E4%B8%80%E5%91%A8%E5%B0%8F%E8%AE%B0/</guid>
       <description>###在“浙”里 来杭州已经有快一周了，和考研时一样，几乎每天都在看书学习（当然各种精彩的讲座我也不会错过，可惜没有抽到汪峰同款的无人机好可惜</description>
     </item>
     
     <item>
       <title>浙江新高考排课系统</title>
-      <link>https://blog.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</link>
+      <link>https://old.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Sun, 28 Jun 2015 23:02:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</guid>
+      <guid>https://old.fangd123.com/post/%E6%B5%99%E6%B1%9F%E6%96%B0%E9%AB%98%E8%80%83%E6%8E%92%E8%AF%BE%E7%B3%BB%E7%BB%9F/</guid>
       <description>###原则 从学生的角度出发，进行聚类 从最简单的情况考虑起（语数外+7选3） 抓主要，兼顾次要 ###约束条件 #####主要 语数外所有人都要学，但</description>
     </item>
     
     <item>
       <title>VPS安装Nginx、PHP、php-fpm、nodeJS小记</title>
-      <link>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
+      <link>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</link>
       <pubDate>Wed, 24 Jun 2015 19:26:09 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
+      <guid>https://old.fangd123.com/post/vps-install-nginxphp-fpmnodejs/</guid>
       <description>前情提要 端午放假回家陪父母之余，闲来无事，便在网上搜索Web PPT相关技术，除了大名鼎鼎的impress.js之外，还有一个中国的前端大神写</description>
     </item>
     
     <item>
       <title>大众创业，大学生除外</title>
-      <link>https://blog.fangd123.com/post/everyboby-startup-except-college-students/</link>
+      <link>https://old.fangd123.com/post/everyboby-startup-except-college-students/</link>
       <pubDate>Sat, 06 Jun 2015 10:50:55 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/everyboby-startup-except-college-students/</guid>
+      <guid>https://old.fangd123.com/post/everyboby-startup-except-college-students/</guid>
       <description>开头语：关于创业，从我接触这个词开始，已经过了五年，我也关注了五年，思考了五年，直觉告诉我，作为一名大学生，创业并不是一件好事，但是我一直都</description>
     </item>
     
     <item>
       <title>近段时间关于玩转湖大的思考</title>
-      <link>https://blog.fangd123.com/post/funhubu-plan/</link>
+      <link>https://old.fangd123.com/post/funhubu-plan/</link>
       <pubDate>Thu, 21 May 2015 10:13:57 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/funhubu-plan/</guid>
+      <guid>https://old.fangd123.com/post/funhubu-plan/</guid>
       <description>目前的问题 人员培训 自媒体建设 技术开发 活动推广和宣传 人员培训 大一新传院 核心目标 通过大量的文字交流建立和玩转湖大之间的联系，通过阅读和思考书籍来</description>
     </item>
     
     <item>
       <title>大一的那道坎</title>
-      <link>https://blog.fangd123.com/post/%E5%A4%A7%E4%B8%80%E7%9A%84%E9%82%A3%E9%81%93%E5%9D%8E/</link>
+      <link>https://old.fangd123.com/post/%E5%A4%A7%E4%B8%80%E7%9A%84%E9%82%A3%E9%81%93%E5%9D%8E/</link>
       <pubDate>Wed, 20 May 2015 22:41:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E5%A4%A7%E4%B8%80%E7%9A%84%E9%82%A3%E9%81%93%E5%9D%8E/</guid>
+      <guid>https://old.fangd123.com/post/%E5%A4%A7%E4%B8%80%E7%9A%84%E9%82%A3%E9%81%93%E5%9D%8E/</guid>
       <description>怀抱着对大学的无比美好的憧憬和期待进入了湖北大学，和大多数人一样，整个大一上学期我被无数闻所未闻的各种事情所环绕，心里既兴奋又紧张，在一次次</description>
     </item>
     
     <item>
       <title>浙大新媒体发展论坛TED</title>
-      <link>https://blog.fangd123.com/post/%E6%B5%99%E5%A4%A7%E6%96%B0%E5%AA%92%E4%BD%93%E5%8F%91%E5%B1%95%E8%AE%BA%E5%9D%9Bted/</link>
+      <link>https://old.fangd123.com/post/%E6%B5%99%E5%A4%A7%E6%96%B0%E5%AA%92%E4%BD%93%E5%8F%91%E5%B1%95%E8%AE%BA%E5%9D%9Bted/</link>
       <pubDate>Mon, 18 May 2015 22:26:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%B5%99%E5%A4%A7%E6%96%B0%E5%AA%92%E4%BD%93%E5%8F%91%E5%B1%95%E8%AE%BA%E5%9D%9Bted/</guid>
+      <guid>https://old.fangd123.com/post/%E6%B5%99%E5%A4%A7%E6%96%B0%E5%AA%92%E4%BD%93%E5%8F%91%E5%B1%95%E8%AE%BA%E5%9D%9Bted/</guid>
       <description>##互联网思维启蒙 徐金波 微信号/QQ:4021577006 ###浙江旅游微信大号如何从0到36万的？ ####新媒体部 内容 渠道 技术 运营 第一阶段</description>
     </item>
     
     <item>
       <title>php5.6在IIS 7下的配置问题</title>
-      <link>https://blog.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</link>
+      <link>https://old.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 18 May 2015 13:04:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://old.fangd123.com/post/php5.6%E5%9C%A8iis-7%E4%B8%8B%E7%9A%84%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/</guid>
       <description>总的来说，在IIS下配置php还是比较简单的，CSDN上有非常多关于这方面的文章，不过还是可能遇到php版本不一样导致的配置方法不同这样的情</description>
     </item>
     
     <item>
       <title>杭州一周小记</title>
-      <link>https://blog.fangd123.com/post/the-first-week-in-hangzhou/</link>
+      <link>https://old.fangd123.com/post/the-first-week-in-hangzhou/</link>
       <pubDate>Sat, 16 May 2015 23:39:05 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/the-first-week-in-hangzhou/</guid>
+      <guid>https://old.fangd123.com/post/the-first-week-in-hangzhou/</guid>
       <description>在“浙”里 来杭州已经有快一周了，和考研时一样，几乎每天都在看书学习（当然各种精彩的讲座我也不会错过，可惜没有抽到汪峰同款的无人机好可惜😷），</description>
     </item>
     
     <item>
       <title>《致我们终将逝去的青春》电影和小说</title>
-      <link>https://blog.fangd123.com/post/%E8%87%B4%E9%9D%92%E6%98%A5%E7%94%B5%E5%BD%B1%E5%92%8C%E5%B0%8F%E8%AF%B4%E7%9A%84%E5%BC%82%E5%90%8C/</link>
+      <link>https://old.fangd123.com/post/%E8%87%B4%E9%9D%92%E6%98%A5%E7%94%B5%E5%BD%B1%E5%92%8C%E5%B0%8F%E8%AF%B4%E7%9A%84%E5%BC%82%E5%90%8C/</link>
       <pubDate>Fri, 08 May 2015 17:22:45 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%87%B4%E9%9D%92%E6%98%A5%E7%94%B5%E5%BD%B1%E5%92%8C%E5%B0%8F%E8%AF%B4%E7%9A%84%E5%BC%82%E5%90%8C/</guid>
+      <guid>https://old.fangd123.com/post/%E8%87%B4%E9%9D%92%E6%98%A5%E7%94%B5%E5%BD%B1%E5%92%8C%E5%B0%8F%E8%AF%B4%E7%9A%84%E5%BC%82%E5%90%8C/</guid>
       <description>《致我们终将逝去的青春》这部小说大概是我大二的时候看的，当时看到同学也在看这本书，出于好奇便借过来一口气看完了。小说有些长，时间跨度大概有十</description>
     </item>
     
     <item>
       <title>我的核心竞争力</title>
-      <link>https://blog.fangd123.com/post/the-way-toward-future/</link>
+      <link>https://old.fangd123.com/post/the-way-toward-future/</link>
       <pubDate>Wed, 06 May 2015 15:40:46 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/the-way-toward-future/</guid>
+      <guid>https://old.fangd123.com/post/the-way-toward-future/</guid>
       <description>此文写于即将读研之际，怀抱着对于未来的向往和决心而作。 近段时间整理大学期间的印象笔记，有很多新的感悟和体会，时常想起大学时期许下的“雄心壮志</description>
     </item>
     
     <item>
       <title>hexo博客Mac平台安装</title>
-      <link>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</link>
+      <link>https://old.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</link>
       <pubDate>Fri, 01 May 2015 20:46:25 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://old.fangd123.com/post/hexo%E5%8D%9A%E5%AE%A2mac%E5%B9%B3%E5%8F%B0%E5%AE%89%E8%A3%85/</guid>
       <description>缘起 之前在自己的Windows笔记本上曾经按照教程配置过一次hexo，没有出现什么问题。但是这次在Mac OSX上配置就遇到了很多奇奇怪怪的问</description>
     </item>
     
     <item>
       <title>决定了就一直向前进吧</title>
-      <link>https://blog.fangd123.com/post/%E5%86%B3%E5%AE%9A%E4%BA%86%E5%B0%B1%E4%B8%80%E7%9B%B4%E5%90%91%E5%89%8D%E8%BF%9B%E5%90%A7/</link>
+      <link>https://old.fangd123.com/post/%E5%86%B3%E5%AE%9A%E4%BA%86%E5%B0%B1%E4%B8%80%E7%9B%B4%E5%90%91%E5%89%8D%E8%BF%9B%E5%90%A7/</link>
       <pubDate>Sat, 07 Mar 2015 22:20:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E5%86%B3%E5%AE%9A%E4%BA%86%E5%B0%B1%E4%B8%80%E7%9B%B4%E5%90%91%E5%89%8D%E8%BF%9B%E5%90%A7/</guid>
+      <guid>https://old.fangd123.com/post/%E5%86%B3%E5%AE%9A%E4%BA%86%E5%B0%B1%E4%B8%80%E7%9B%B4%E5%90%91%E5%89%8D%E8%BF%9B%E5%90%A7/</guid>
       <description>##决定了就一直向前进吧 昨天和国防科大的老师见面了，老师很好，真的，很好，开车接我进学校，一路上跟我介绍国防科大的校园，还带我去他们的教工食</description>
     </item>
     
     <item>
       <title>过年小结</title>
-      <link>https://blog.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/</link>
+      <link>https://old.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/</link>
       <pubDate>Wed, 25 Feb 2015 12:52:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/</guid>
+      <guid>https://old.fangd123.com/post/%E8%BF%87%E5%B9%B4%E5%B0%8F%E7%BB%93/</guid>
       <description>腊月二十二回家，正月初八返回武汉，在这半个月的时间里，除了陪父母到处走亲戚之外，其余时间基本上就是看看书打打LOL鼓捣鼓捣云主机想想玩转湖大</description>
     </item>
     
     <item>
       <title>Wordpress主题开发学习笔记</title>
-      <link>https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://old.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 23 Feb 2015 12:50:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://old.fangd123.com/post/wordpress%E4%B8%BB%E9%A2%98%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>本文是如下两个教程综合的笔记： Learn WordPress | LearnWebCode WordPress主题制作全过程（一）：主题文件构成 - 露兜博客 （一）文件结构 主页(按照优先顺序排列) 1.home.php</description>
     </item>
     
     <item>
       <title>九三：君子终日乾乾，夕惕若，厉无咎</title>
-      <link>https://blog.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/</link>
+      <link>https://old.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/</link>
       <pubDate>Sat, 14 Feb 2015 22:11:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/</guid>
+      <guid>https://old.fangd123.com/post/%E4%B9%9D%E4%B8%89%E5%90%9B%E5%AD%90%E7%BB%88%E6%97%A5%E4%B9%BE%E4%B9%BE%E5%A4%95%E6%83%95%E8%8B%A5%E5%8E%89%E6%97%A0%E5%92%8E/</guid>
       <description>考研分数已经出来了，如我所料，不好不坏，其实我已经很满足了。 上周，我借同学的车把所有的行李搬回家，我在房里收拾东西的时候，一大摞便利贴还有好</description>
     </item>
     
     <item>
       <title>SSD云主机DigitalOcean配置手记—下篇</title>
-      <link>https://blog.fangd123.com/post/do-configuration/</link>
+      <link>https://old.fangd123.com/post/do-configuration/</link>
       <pubDate>Fri, 13 Feb 2015 12:47:20 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/do-configuration/</guid>
+      <guid>https://old.fangd123.com/post/do-configuration/</guid>
       <description>Part 5—配置LAMP环境 本文作为DO社区教程补充，社区教程链接《How To Install Linux, Apache, MySQL, PHP (LAMP) stack On CentOS 7 | DigitalOcean》 同样，DO社区教程已经</description>
     </item>
     
     <item>
       <title>SSD云主机DigitalOcean配置手记—上篇</title>
-      <link>https://blog.fangd123.com/post/digitalocean-account/</link>
+      <link>https://old.fangd123.com/post/digitalocean-account/</link>
       <pubDate>Thu, 12 Feb 2015 12:14:14 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/digitalocean-account/</guid>
+      <guid>https://old.fangd123.com/post/digitalocean-account/</guid>
       <description>Part 1—账户注册&amp;amp;建立云主机 最近貌似云主机很火，在知乎闲逛的时候经常可以看到这方面的讨论，BAT均推出了自己的云主机服务，除此之外还有</description>
     </item>
     
     <item>
       <title>新年新起点</title>
-      <link>https://blog.fangd123.com/post/xinnianxinqidian/</link>
+      <link>https://old.fangd123.com/post/xinnianxinqidian/</link>
       <pubDate>Thu, 12 Feb 2015 10:35:49 -0500</pubDate>
       
-      <guid>https://blog.fangd123.com/post/xinnianxinqidian/</guid>
+      <guid>https://old.fangd123.com/post/xinnianxinqidian/</guid>
       <description>两年前的这个时候，我的第一个个人博客“子达小站”正式上线，从此开启了我的互联网生活新世界，虽然在后来的一段时间因为各种各样的事情耽搁了，但是</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://blog.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</link>
+      <link>https://old.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</link>
       <pubDate>Mon, 30 Jun 2014 21:10:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</guid>
+      <guid>https://old.fangd123.com/post/%E6%88%91%E6%89%80%E7%90%86%E8%A7%A3%E7%9A%84cc&#43;&#43;java/</guid>
       <description>如果按照层次来分的话，其实还需要把汇编加上去，这样的话从低到高就是汇编、C、C++、Java，这几种语言基本上可以完成任何事情，但是我觉得如</description>
     </item>
     
     <item>
       <title>基于微信公众平台的校园服务信息系统设计与开发研究</title>
-      <link>https://blog.fangd123.com/post/%E5%9F%BA%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91%E7%A0%94%E7%A9%B6/</link>
+      <link>https://old.fangd123.com/post/%E5%9F%BA%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91%E7%A0%94%E7%A9%B6/</link>
       <pubDate>Sun, 16 Feb 2014 22:02:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E5%9F%BA%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91%E7%A0%94%E7%A9%B6/</guid>
+      <guid>https://old.fangd123.com/post/%E5%9F%BA%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%A0%A1%E5%9B%AD%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%BC%80%E5%8F%91%E7%A0%94%E7%A9%B6/</guid>
       <description>##目录 ###摘要 ###绪论 问题的提出 选题的缘由 选题的意义 研究综述 #####国外研究现状 #####国内研究现状 #####研究主要内容与方法 #</description>
     </item>
     
     <item>
       <title>不知道这算不算情书</title>
-      <link>https://blog.fangd123.com/post/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%99%E7%AE%97%E4%B8%8D%E7%AE%97%E6%83%85%E4%B9%A6/</link>
+      <link>https://old.fangd123.com/post/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%99%E7%AE%97%E4%B8%8D%E7%AE%97%E6%83%85%E4%B9%A6/</link>
       <pubDate>Fri, 14 Feb 2014 15:14:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%99%E7%AE%97%E4%B8%8D%E7%AE%97%E6%83%85%E4%B9%A6/</guid>
+      <guid>https://old.fangd123.com/post/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%99%E7%AE%97%E4%B8%8D%E7%AE%97%E6%83%85%E4%B9%A6/</guid>
       <description>在我的印象中开始认识你的时候是那次在图书馆前的草坪上，我如往常买了面包牛奶准备边享受清晨的阳光边吃我的早餐。就在这时，你出现我的视野里，正坐</description>
     </item>
     
     <item>
       <title>2014新年寄语</title>
-      <link>https://blog.fangd123.com/post/2014%E6%96%B0%E5%B9%B4%E5%AF%84%E8%AF%AD/</link>
+      <link>https://old.fangd123.com/post/2014%E6%96%B0%E5%B9%B4%E5%AF%84%E8%AF%AD/</link>
       <pubDate>Wed, 12 Feb 2014 21:19:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2014%E6%96%B0%E5%B9%B4%E5%AF%84%E8%AF%AD/</guid>
+      <guid>https://old.fangd123.com/post/2014%E6%96%B0%E5%B9%B4%E5%AF%84%E8%AF%AD/</guid>
       <description>逝去的2013 互联网的绳子 还清楚地记得去年的这个时候我在鼓捣自己的博客，从域名申请、主机申请到博客的搭建、博客起名，回想起来，这些依旧历历在</description>
     </item>
     
     <item>
       <title>见识的边缘便成了眼界</title>
-      <link>https://blog.fangd123.com/post/%E8%A7%81%E8%AF%86%E7%9A%84%E8%BE%B9%E7%BC%98%E4%BE%BF%E6%88%90%E4%BA%86%E7%9C%BC%E7%95%8C/</link>
+      <link>https://old.fangd123.com/post/%E8%A7%81%E8%AF%86%E7%9A%84%E8%BE%B9%E7%BC%98%E4%BE%BF%E6%88%90%E4%BA%86%E7%9C%BC%E7%95%8C/</link>
       <pubDate>Mon, 10 Feb 2014 20:44:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%A7%81%E8%AF%86%E7%9A%84%E8%BE%B9%E7%BC%98%E4%BE%BF%E6%88%90%E4%BA%86%E7%9C%BC%E7%95%8C/</guid>
+      <guid>https://old.fangd123.com/post/%E8%A7%81%E8%AF%86%E7%9A%84%E8%BE%B9%E7%BC%98%E4%BE%BF%E6%88%90%E4%BA%86%E7%9C%BC%E7%95%8C/</guid>
       <description>记大三圣诞节前夕厦门之旅 貌似好久没有写月记了，之前写的都是一些读书笔记之类的，算起来从上次去厦门之后就没有写了。寒假在家里除了每天各种串门走</description>
     </item>
     
     <item>
       <title>2013年9月2日 阴转小雨 星期一</title>
-      <link>https://blog.fangd123.com/post/2013%E5%B9%B49%E6%9C%882%E6%97%A5-%E9%98%B4%E8%BD%AC%E5%B0%8F%E9%9B%A8-%E6%98%9F%E6%9C%9F%E4%B8%80/</link>
+      <link>https://old.fangd123.com/post/2013%E5%B9%B49%E6%9C%882%E6%97%A5-%E9%98%B4%E8%BD%AC%E5%B0%8F%E9%9B%A8-%E6%98%9F%E6%9C%9F%E4%B8%80/</link>
       <pubDate>Mon, 02 Sep 2013 10:01:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2013%E5%B9%B49%E6%9C%882%E6%97%A5-%E9%98%B4%E8%BD%AC%E5%B0%8F%E9%9B%A8-%E6%98%9F%E6%9C%9F%E4%B8%80/</guid>
+      <guid>https://old.fangd123.com/post/2013%E5%B9%B49%E6%9C%882%E6%97%A5-%E9%98%B4%E8%BD%AC%E5%B0%8F%E9%9B%A8-%E6%98%9F%E6%9C%9F%E4%B8%80/</guid>
       <description>这段时间内心着实比较纠结，貌似我给自己的事情太多了，多得让自己都感觉到茫然，有种自己现在所做的毫无用处的感觉，在应聘了那么多程序员的职位，深</description>
     </item>
     
     <item>
       <title>2013.4.5 星期五 天气 风雨交加</title>
-      <link>https://blog.fangd123.com/post/2013.4.5-%E6%98%9F%E6%9C%9F%E4%BA%94-%E5%A4%A9%E6%B0%94-%E9%A3%8E%E9%9B%A8%E4%BA%A4%E5%8A%A0/</link>
+      <link>https://old.fangd123.com/post/2013.4.5-%E6%98%9F%E6%9C%9F%E4%BA%94-%E5%A4%A9%E6%B0%94-%E9%A3%8E%E9%9B%A8%E4%BA%A4%E5%8A%A0/</link>
       <pubDate>Fri, 05 Apr 2013 20:32:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2013.4.5-%E6%98%9F%E6%9C%9F%E4%BA%94-%E5%A4%A9%E6%B0%94-%E9%A3%8E%E9%9B%A8%E4%BA%A4%E5%8A%A0/</guid>
+      <guid>https://old.fangd123.com/post/2013.4.5-%E6%98%9F%E6%9C%9F%E4%BA%94-%E5%A4%A9%E6%B0%94-%E9%A3%8E%E9%9B%A8%E4%BA%A4%E5%8A%A0/</guid>
       <description>今天是我的生日，21年前，大约是现在这个时候，我来到了这个世上，已经21年 了，话说这一面的日期记录是10个月之前的事，10个月转瞬即逝，太快</description>
     </item>
     
     <item>
       <title>2012.5.10 星期天 晴</title>
-      <link>https://blog.fangd123.com/post/2012.5.10-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</link>
+      <link>https://old.fangd123.com/post/2012.5.10-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</link>
       <pubDate>Thu, 10 May 2012 19:33:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2012.5.10-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</guid>
+      <guid>https://old.fangd123.com/post/2012.5.10-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</guid>
       <description>做自己喜欢做的事，成功会随之而来——题记 《三傻大闹宝莱坞》中，兰彻的这句话让我心头一震，这何尝不是我正在努力实现的想法！如果让一位中国家长看</description>
     </item>
     
     <item>
       <title>2010.12.26 星期天 晴</title>
-      <link>https://blog.fangd123.com/post/2010.12.26-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</link>
+      <link>https://old.fangd123.com/post/2010.12.26-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</link>
       <pubDate>Sun, 26 Dec 2010 23:10:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2010.12.26-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</guid>
+      <guid>https://old.fangd123.com/post/2010.12.26-%E6%98%9F%E6%9C%9F%E5%A4%A9-%E6%99%B4/</guid>
       <description>自从上次听了那位“每位素质教育”的讲座后，心里久久不能平静，不知为什么，现在总是感到一股莫名的压力，但却不知这压力从何而来。我想恐怕是自己给</description>
     </item>
     
     <item>
       <title>国学竞赛武大行</title>
-      <link>https://blog.fangd123.com/post/%E5%9B%BD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%AD%A6%E5%A4%A7%E8%A1%8C/</link>
+      <link>https://old.fangd123.com/post/%E5%9B%BD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%AD%A6%E5%A4%A7%E8%A1%8C/</link>
       <pubDate>Sun, 12 Dec 2010 23:09:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E5%9B%BD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%AD%A6%E5%A4%A7%E8%A1%8C/</guid>
+      <guid>https://old.fangd123.com/post/%E5%9B%BD%E5%AD%A6%E7%AB%9E%E8%B5%9B%E6%AD%A6%E5%A4%A7%E8%A1%8C/</guid>
       <description>##2010.12.12 星期日 雨 星期天，天气不大好，外边下着小雨，地上湿漉漉的。即便如此，我还是不远万里的来到武大旁观“国学知识竞赛”，一方面为了一睹决赛选手们的</description>
     </item>
     
     <item>
       <title>从《第五届职业规划大赛》谈职业规划</title>
-      <link>https://blog.fangd123.com/post/%E4%BB%8E%E7%AC%AC%E4%BA%94%E5%B1%8A%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92%E5%A4%A7%E8%B5%9B%E8%B0%88%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</link>
+      <link>https://old.fangd123.com/post/%E4%BB%8E%E7%AC%AC%E4%BA%94%E5%B1%8A%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92%E5%A4%A7%E8%B5%9B%E8%B0%88%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</link>
       <pubDate>Sat, 11 Dec 2010 23:09:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E4%BB%8E%E7%AC%AC%E4%BA%94%E5%B1%8A%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92%E5%A4%A7%E8%B5%9B%E8%B0%88%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</guid>
+      <guid>https://old.fangd123.com/post/%E4%BB%8E%E7%AC%AC%E4%BA%94%E5%B1%8A%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92%E5%A4%A7%E8%B5%9B%E8%B0%88%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</guid>
       <description>2010.12.11 星期六 阴 冬天，终于来了，在前几天连续将近20℃的“高温”后，今天中午太阳突然躲起来了，瞬间便能感到丝丝寒意。冬天，最后一个季节。 晚上，在国</description>
     </item>
     
     <item>
       <title>2010.12.8 星期三 晴</title>
-      <link>https://blog.fangd123.com/post/2010.12.8-%E6%98%9F%E6%9C%9F%E4%B8%89-%E6%99%B4/</link>
+      <link>https://old.fangd123.com/post/2010.12.8-%E6%98%9F%E6%9C%9F%E4%B8%89-%E6%99%B4/</link>
       <pubDate>Wed, 08 Dec 2010 19:42:00 +0800</pubDate>
       
-      <guid>https://blog.fangd123.com/post/2010.12.8-%E6%98%9F%E6%9C%9F%E4%B8%89-%E6%99%B4/</guid>
+      <guid>https://old.fangd123.com/post/2010.12.8-%E6%98%9F%E6%9C%9F%E4%B8%89-%E6%99%B4/</guid>
       <description>已经有一年多没有写文章了，高三一年加上暑假两个月加上大学三个月，时间可过的真快，不能说在这么长时间内没有想法，不是有很多东西把这些想法蒙蔽了</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/temp/</link>
+      <link>https://old.fangd123.com/post/vagrant-create-environment-for-web-development/temp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.fangd123.com/post/vagrant-create-environment-for-web-development/temp/</guid>
+      <guid>https://old.fangd123.com/post/vagrant-create-environment-for-web-development/temp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>自然语言处理笔记（哥伦比亚大学）</title>
-      <link>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</link>
+      <link>https://old.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</guid>
+      <guid>https://old.fangd123.com/post/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E5%93%A5%E4%BC%A6%E6%AF%94%E4%BA%9A%E5%A4%A7%E5%AD%A6/</guid>
       <description>#Model Language 主要是判断这几个词汇能够形成一个句子的概率是多少，通过建立概率统计模型进行判断。 主要是通过马尔科夫模型、条件概率的思想，理想状态下是当前</description>
     </item>
     
     <item>
       <title>过年小结</title>
-      <link>https://blog.fangd123.com/post/spring-festival-summary/</link>
+      <link>https://old.fangd123.com/post/spring-festival-summary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.fangd123.com/post/spring-festival-summary/</guid>
+      <guid>https://old.fangd123.com/post/spring-festival-summary/</guid>
       <description>腊月二十二回家，正月初八返回武汉，在这半个月的时间里，除了陪父母到处走亲戚之外，其余时间基本上就是看看书打打LOL鼓捣鼓捣云主机想想玩转湖大</description>
     </item>
     
